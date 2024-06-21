@@ -1,76 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6qiaitc0cdat"]
+[gd_scene load_steps=5 format=3 uid="uid://c6qiaitc0cdat"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_e0dq0"]
 [ext_resource type="PackedScene" uid="uid://dmcn4rvwmtd7s" path="res://scenes/player.tscn" id="2_3slc8"]
-[ext_resource type="PackedScene" uid="uid://c03ycxa25mtsg" path="res://scenes/spike.tscn" id="3_sks1k"]
-[ext_resource type="PackedScene" uid="uid://dmonx7i6n6vvs" path="res://scenes/apple.tscn" id="4_0bwlg"]
 [ext_resource type="PackedScene" uid="uid://cx2hgkvryoqrt" path="res://scenes/level_completed.tscn" id="5_taytp"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkmxe"]
-size = Vector2(18, 64)
+[ext_resource type="PackedScene" uid="uid://brecphy80ng8c" path="res://scenes/level_tile_map.tscn" id="6_vj16x"]
 
 [node name="World" type="Node2D"]
-position = Vector2(1, 0)
+position = Vector2(39.216, 32.0551)
 script = ExtResource("1_e0dq0")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-scale = Vector2(0.768701, 0.802574)
-polygon = PackedVector2Array(0, 0, 24, 0, 24, 112, 64, 112, 93.6645, 129.583, 124.886, 129.583, 152, 112, 184, 112, 184, 168, 216, 168, 216, 112, 256, 112, 256, 136, 280.993, 129.583, 312, 112, 344, 112, 344, 136, 384, 136, 384, 0, 416, 0, 416, 224, 0, 224)
-
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
-position = Vector2(2.60179, 0)
-
 [node name="Player" parent="." instance=ExtResource("2_3slc8")]
-position = Vector2(40, 48)
-scale = Vector2(0.5, 0.5)
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(260, 31)
-shape = SubResource("RectangleShape2D_nkmxe")
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
-offset_left = 251.0
-offset_top = -1.0
-offset_right = 269.0
-offset_bottom = 63.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Spike" parent="." instance=ExtResource("3_sks1k")]
-position = Vector2(142.364, 134.975)
-
-[node name="Spike2" parent="." instance=ExtResource("3_sks1k")]
-position = Vector2(150.364, 134.975)
-
-[node name="Spike3" parent="." instance=ExtResource("3_sks1k")]
-position = Vector2(268.364, 108.975)
-
-[node name="Spike4" parent="." instance=ExtResource("3_sks1k")]
-position = Vector2(276.364, 108.975)
-
-[node name="Apple" parent="." instance=ExtResource("4_0bwlg")]
-position = Vector2(154, 68)
-scale = Vector2(0.5, 0.5)
-
-[node name="Apple4" parent="." instance=ExtResource("4_0bwlg")]
-position = Vector2(262, -4)
-scale = Vector2(0.5, 0.5)
-
-[node name="Apple5" parent="." instance=ExtResource("4_0bwlg")]
-position = Vector2(275, 19)
-scale = Vector2(0.5, 0.5)
-
-[node name="Apple2" parent="." instance=ExtResource("4_0bwlg")]
-position = Vector2(289, 52)
-scale = Vector2(0.5, 0.5)
-
-[node name="Apple3" parent="." instance=ExtResource("4_0bwlg")]
-position = Vector2(210, 101)
+position = Vector2(22.6922, 33.9999)
 scale = Vector2(0.5, 0.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -80,3 +20,6 @@ visible = false
 offset_left = 2.0
 offset_right = 2.0
 metadata/_edit_use_anchors_ = true
+
+[node name="LevelTileMap" parent="." instance=ExtResource("6_vj16x")]
+scale = Vector2(0.8, 0.8)

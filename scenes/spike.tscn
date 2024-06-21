@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bprkauxp6si8s" path="res://scenes/hazard_area.tscn" id="2_goue1"]
 
 [node name="Spike" type="Node2D"]
+position = Vector2(-8, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8, -8)

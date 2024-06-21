@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6qiaitc0cdat"]
+
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_e0dq0"]
+[ext_resource type="PackedScene" uid="uid://dmcn4rvwmtd7s" path="res://scenes/player.tscn" id="2_3slc8"]
+[ext_resource type="PackedScene" uid="uid://dmonx7i6n6vvs" path="res://scenes/apple.tscn" id="4_0bwlg"]
+[ext_resource type="PackedScene" uid="uid://cx2hgkvryoqrt" path="res://scenes/level_completed.tscn" id="5_taytp"]
+[ext_resource type="PackedScene" uid="uid://brecphy80ng8c" path="res://scenes/level_tile_map.tscn" id="6_vj16x"]
+
+[node name="World" type="Node2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_e0dq0")
+
+[node name="Player" parent="." instance=ExtResource("2_3slc8")]
+position = Vector2(40, 48)
+scale = Vector2(0.5, 0.5)
+
+[node name="Apple" parent="." instance=ExtResource("4_0bwlg")]
+position = Vector2(154, 68)
+scale = Vector2(0.5, 0.5)
+
+[node name="Apple4" parent="." instance=ExtResource("4_0bwlg")]
+position = Vector2(262, -4)
+scale = Vector2(0.5, 0.5)
+
+[node name="Apple5" parent="." instance=ExtResource("4_0bwlg")]
+position = Vector2(275, 19)
+scale = Vector2(0.5, 0.5)
+
+[node name="Apple2" parent="." instance=ExtResource("4_0bwlg")]
+position = Vector2(289, 52)
+scale = Vector2(0.5, 0.5)
+
+[node name="Apple3" parent="." instance=ExtResource("4_0bwlg")]
+position = Vector2(210, 101)
+scale = Vector2(0.5, 0.5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelCompleted" parent="CanvasLayer" instance=ExtResource("5_taytp")]
+visible = false
+offset_left = 2.0
+offset_right = 2.0
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelTileMap" parent="." instance=ExtResource("6_vj16x")]
+position = Vector2(184.023, 154.073)
+layer_0/tile_data = PackedInt32Array(-327690, 393216, 0, -327689, 458752, 0, -327688, 458752, 0, -327687, 524288, 0, -262153, 458752, 1, -262152, 458752, 1, -262154, 393216, 1, -196616, 458752, 1, -196617, 458752, 1, -196618, 393216, 1, -196615, 589824, 1, -262151, 524288, 1, -131080, 458752, 2, -131081, 458752, 2, -131082, 393216, 2, -131079, 458752, 1, -196614, 458752, 0, -196613, 458752, 0, -196612, 458752, 0, -196611, 458752, 0, -196610, 524288, 0, -131075, 458752, 1, -131076, 458752, 1, -131077, 458752, 1, -131078, 458752, 1, -65543, 393216, 2, -65542, 458752, 2, -65541, 458752, 2, -65540, 458752, 2, -65539, 458752, 2, -65538, 524288, 2, -131074, 524288, 1, -12, 0, 1, -65548, 0, 1, -131084, 0, 1, -196620, 0, 1, -262156, 0, 1, -327692, 0, 1, -393228, 0, 1, -458764, 0, 1, -524300, 0, 1, -589836, 0, 0, -589835, 65536, 0, -589834, 65536, 0, -589833, 65536, 0, -589832, 65536, 0, -589831, 65536, 0, -589830, 65536, 0, -589829, 65536, 0, -589828, 65536, 0, -589827, 65536, 0, -589826, 65536, 0, -589825, 65536, 0, -655360, 65536, 0, -655359, 65536, 0, -655358, 65536, 0, -655357, 65536, 0, -655356, 65536, 0, -655355, 65536, 0, -655354, 65536, 0, -655353, 131072, 0, -589817, 131072, 1, -524281, 131072, 1, -458745, 131072, 1, -393209, 131072, 1, -327673, 131072, 1, -262137, 131072, 1, -196601, 131072, 1, -131065, 131072, 1, -65529, 131072, 1, 7, 131072, 1, 131060, 0, 2, 65524, 0, 1, 131061, 65536, 2, 131062, 65536, 2, 131063, 65536, 2, 131064, 65536, 2, 131065, 65536, 2, 131066, 65536, 2, 131067, 65536, 2, 131068, 65536, 2, 131069, 65536, 2, 131070, 65536, 2, 131071, 65536, 2, 65536, 65536, 2, 65537, 65536, 2, 65538, 65536, 2, 65539, 65536, 2, 65540, 65536, 2, 65541, 65536, 2, 65542, 65536, 2, 65543, 131072, 2)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(152, 92)
