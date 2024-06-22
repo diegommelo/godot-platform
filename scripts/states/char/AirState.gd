@@ -9,18 +9,17 @@ class_name AirState
 
 var has_double_jump = true
 
-func state_process(delta):
+func state_physics_process(delta):
 	if character.is_on_floor():
-		next_state = landing_state
+		transitioned.emit("LandingState")
 		
 func state_input(event : InputEvent):
 	if event.is_action_pressed("jump") and has_double_jump:
 		double_jump()
 
 func on_exit():
-	if next_state == landing_state:
-		playback.travel(landing_animation)
-		has_double_jump = true
+	playback.travel(landing_animation)
+	has_double_jump = true
 
 func double_jump():
 	character.velocity.y = ground_state.jump_velocity * double_jump_modifier
