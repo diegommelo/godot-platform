@@ -8,6 +8,7 @@ class_name GroundState
 func state_process(delta):
 	if not character.is_on_floor():
 		next_state = air_state
+	#pass
 
 func state_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):

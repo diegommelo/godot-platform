@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dw4jdjnlx8675"]
 
-[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_74bvd"]
+[ext_resource type="Script" path="res://scripts/ui/start_menu.gd" id="1_74bvd"]
 
 [node name="StartMenu" type="CenterContainer"]
 anchors_preset = 15

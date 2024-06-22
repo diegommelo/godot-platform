@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://cwkiht2rce3jn"]
 
-[ext_resource type="PackedScene" uid="uid://c6qiaitc0cdat" path="res://scenes/world.tscn" id="1_gcmv2"]
-[ext_resource type="PackedScene" uid="uid://brecphy80ng8c" path="res://scenes/level_tile_map.tscn" id="2_r0ijc"]
-[ext_resource type="PackedScene" uid="uid://cu2bqf4eg7fpo" path="res://scenes/level_2.tscn" id="2_r4qqm"]
-[ext_resource type="PackedScene" uid="uid://dmonx7i6n6vvs" path="res://scenes/apple.tscn" id="3_o4bv1"]
-[ext_resource type="PackedScene" uid="uid://c03ycxa25mtsg" path="res://scenes/spike.tscn" id="4_s427q"]
+[ext_resource type="PackedScene" uid="uid://c6qiaitc0cdat" path="res://scenes/base/world.tscn" id="1_gcmv2"]
+[ext_resource type="PackedScene" uid="uid://brecphy80ng8c" path="res://scenes/base/level_tile_map.tscn" id="2_r0ijc"]
+[ext_resource type="PackedScene" uid="uid://cu2bqf4eg7fpo" path="res://scenes/levels/level_2.tscn" id="2_r4qqm"]
+[ext_resource type="PackedScene" uid="uid://dmonx7i6n6vvs" path="res://scenes/items/apple.tscn" id="3_o4bv1"]
+[ext_resource type="PackedScene" uid="uid://c03ycxa25mtsg" path="res://scenes/items/spike.tscn" id="4_s427q"]
 [ext_resource type="PackedScene" uid="uid://cyl3trd3ogclw" path="res://scenes/chars/ninja_frog.tscn" id="6_a5jgu"]
 
 [node name="Level1" instance=ExtResource("1_gcmv2")]
@@ -60,5 +60,5 @@ position = Vector2(209.993, 188.715)
 position = Vector2(217.466, 188.566)
 
 [node name="NinjaFrog" parent="." index="11" instance=ExtResource("6_a5jgu")]
-position = Vector2(3.03907, 89.7714)
+position = Vector2(-4.09617, 41.9058)
 scale = Vector2(0.7, 0.7)

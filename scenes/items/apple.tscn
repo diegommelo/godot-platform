@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://dmonx7i6n6vvs"]
 
-[ext_resource type="Script" path="res://scripts/apple.gd" id="1_dv3ck"]
+[ext_resource type="Script" path="res://scripts/items/apple.gd" id="1_dv3ck"]
 [ext_resource type="Texture2D" uid="uid://dmt2vr87g5or5" path="res://sprites/items/Apple.png" id="1_fyx4r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mox7x"]
