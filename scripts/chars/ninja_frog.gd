@@ -14,7 +14,7 @@ func _physics_process(delta):
 	direction = Input.get_vector("move_left", "move_right", "jump", "ui_down")
 	
 	apply_gravity(delta)
-	move_character()
+	#move_character()
 	move_and_slide()
 	update_facing_direction()
 	update_animation_parameters()
@@ -22,11 +22,11 @@ func _physics_process(delta):
 func update_animation_parameters():
 	animation_tree.set("parameters/Move/blend_position", direction.x)
 	
-func move_character():
-	if direction.x != 0 and state_machine.can_move():
-		velocity.x = direction.x * movement_data.speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, movement_data.speed)
+#func move_character():
+	#if direction.x != 0 and state_machine.can_move():
+		#velocity.x = direction.x * movement_data.speed
+	#else:
+		#velocity.x = move_toward(velocity.x, 0, movement_data.speed)
 		
 func update_facing_direction():
 	if direction.x > 0:
@@ -37,3 +37,4 @@ func update_facing_direction():
 func apply_gravity(delta):
 	if not is_on_floor():
 		velocity.y += gravity * movement_data.gravity_scale * delta
+		

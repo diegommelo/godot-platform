@@ -313,7 +313,7 @@ radius = 8.70037
 height = 23.3143
 
 [node name="NinjaFrog" type="CharacterBody2D"]
-position = Vector2(0, 8)
+position = Vector2(-1, -15.875)
 script = ExtResource("1_cb64f")
 movement_data = ExtResource("2_ow40y")
 
@@ -345,11 +345,15 @@ current_state = NodePath("GroundState")
 
 [node name="GroundState" type="Node" parent="ChararacterStateMachine" node_paths=PackedStringArray("air_state")]
 script = ExtResource("8_ju7y4")
+jump_velocity = null
 air_state = NodePath("../AirState")
 jump_animation = "jump_start"
+can_move = null
 
-[node name="AirState" type="Node" parent="ChararacterStateMachine"]
+[node name="AirState" type="Node" parent="ChararacterStateMachine" node_paths=PackedStringArray("landing_state", "ground_state")]
 script = ExtResource("9_u7k1c")
+landing_state = NodePath("../LandingState")
+ground_state = NodePath("../GroundState")
 landing_animation = "jump_end"
 
 [node name="LandingState" type="Node" parent="ChararacterStateMachine" node_paths=PackedStringArray("ground_state")]

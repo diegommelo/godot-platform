@@ -98,7 +98,7 @@ func apply_gravity(delta):
 			
 func apply_friction(input_axis, delta):
 	if input_axis == 0 and is_on_floor():
-		velocity.x = move_toward(velocity.x, 0, movement_data.friction * delta)		
+		velocity.x = move_toward(velocity.x, 0, movement_data.friction * delta)
 
 func _on_hazard_detector_area_entered(area):
 	global_position = starting_position
