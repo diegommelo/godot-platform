@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	current_state.state_input(event)
 	
-func on_child_transitioned(new_state_name: StringName) -> void:
+func on_child_transitioned(new_state_name: StringName, args: Dictionary) -> void:
 	var new_state = states.get(new_state_name)
 	
 	if new_state != null:
@@ -36,6 +36,8 @@ func on_child_transitioned(new_state_name: StringName) -> void:
 			current_state.on_exit()
 			new_state.on_enter()
 			current_state = new_state
+			if args.has('from_state'):
+				current_state.from_state = args['from_state']
 	else:
 		push_warning("Called transition on a state that does not exist")
 	

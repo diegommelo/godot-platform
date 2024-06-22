@@ -7,7 +7,7 @@ extends State
 
 func state_physics_process(delta):
 	if not character.is_on_floor():
-		transitioned.emit("AirState")
+		transitioned.emit("AirState", {'from_state': name})
 
 func state_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):

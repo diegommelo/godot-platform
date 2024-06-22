@@ -5,7 +5,7 @@ extends Node
 
 var character : CharacterBody2D
 var playback : AnimationNodeStateMachinePlayback
-#var next_state : State
+var from_state : String = ""
 
 signal transitioned(new_state_name: StringName)
 
