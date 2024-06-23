@@ -320,7 +320,7 @@ movement_data = ExtResource("2_ow40y")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -1)
 texture = ExtResource("3_5v5t8")
-hframes = 6
+hframes = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -343,10 +343,10 @@ character = NodePath("..")
 animation_tree = NodePath("../AnimationTree")
 current_state = NodePath("GroundState")
 
-[node name="GroundState" type="Node" parent="ChararacterStateMachine" node_paths=PackedStringArray("air_state")]
+[node name="GroundState" type="Node" parent="ChararacterStateMachine" node_paths=PackedStringArray("coyote_jump_timer")]
 script = ExtResource("8_ju7y4")
-air_state = NodePath("../AirState")
 jump_animation = "jump_start"
+coyote_jump_timer = NodePath("../../CoyoteJumpTimer")
 
 [node name="AirState" type="Node" parent="ChararacterStateMachine"]
 script = ExtResource("9_u7k1c")
@@ -366,5 +366,9 @@ offset_bottom = -14.25
 text = "State: "
 script = ExtResource("9_ovsat")
 state_machine = NodePath("../ChararacterStateMachine")
+
+[node name="CoyoteJumpTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
 
 [connection signal="animation_finished" from="AnimationTree" to="ChararacterStateMachine/LandingState" method="_on_animation_tree_animation_finished"]
