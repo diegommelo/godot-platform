@@ -7,6 +7,7 @@ var character : CharacterBody2D
 var playback : AnimationNodeStateMachinePlayback
 var animation : AnimationPlayer
 var from_state : String = ""
+var emitted_args : Dictionary = {}
 
 signal transitioned(new_state_name: StringName)
 

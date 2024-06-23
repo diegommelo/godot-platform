@@ -37,6 +37,9 @@ func on_child_transitioned(new_state_name: StringName, args: Dictionary) -> void
 			current_state.on_exit()
 			new_state.on_enter()
 			current_state = new_state
+			if args:
+				current_state.emitted_args = args
+
 			if args.has('from_state'):
 				current_state.from_state = args['from_state']
 	else:

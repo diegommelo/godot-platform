@@ -15,8 +15,10 @@ func state_physics_process(delta):
 		transitioned.emit("LandingState", {})
 		
 func state_input(event : InputEvent):
-	if event.is_action_pressed("jump") and has_double_jump:
-		double_jump()
+	var has_jumped = emitted_args.get("has_jumped")
+
+	if event.is_action_pressed("jump") and has_double_jump and has_jumped:
+			double_jump()
 
 func on_enter():
 	playback.travel("jump_start")

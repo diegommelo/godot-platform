@@ -17,7 +17,7 @@ func state_input(event: InputEvent) -> void:
 
 func jump():
 	character.velocity.y = character.movement_data.jump_velocity
-	transitioned.emit("AirState")
+	transitioned.emit("AirState", {"has_jumped": true})
 	playback.travel(jump_animation)
 	
 func walk(delta):

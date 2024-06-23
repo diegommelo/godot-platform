@@ -5,7 +5,6 @@ extends State
 @export var ground_state : State
 
 func state_physics_process(delta):
-	print('passou por aqui')
 	if character.is_on_floor(): 
 		transitioned.emit("GroundState", {})
 
