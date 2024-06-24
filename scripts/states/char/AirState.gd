@@ -13,10 +13,14 @@ func state_physics_process(delta):
 	
 	if character.is_on_floor():
 		transitioned.emit("LandingState", {})
+	
+	if not character.is_on_floor():
+		if Input.is_action_just_released("jump") and character.velocity.y < character.movement_data.jump_velocity / 2:
+			#print('frog small')
+			character.velocity.y = character.movement_data.jump_velocity / 2
 		
 func state_input(event : InputEvent):
 	var has_jumped = emitted_args.get("has_jumped")
-
 	if event.is_action_pressed("jump") and has_double_jump and has_jumped:
 			double_jump()
 

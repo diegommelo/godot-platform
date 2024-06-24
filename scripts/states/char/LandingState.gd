@@ -11,4 +11,3 @@ func state_physics_process(delta):
 #func _on_animation_tree_animation_finished(anim_name):
 	#if anim_name == landing_animation_name:
 		#transitioned.emit("GroundState", {})  
-
