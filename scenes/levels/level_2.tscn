@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cu2bqf4eg7fpo"]
+[gd_scene load_steps=4 format=3 uid="uid://cu2bqf4eg7fpo"]
 
 [ext_resource type="PackedScene" uid="uid://c6qiaitc0cdat" path="res://scenes/base/world.tscn" id="1_hosnn"]
 [ext_resource type="PackedScene" uid="uid://cyl3trd3ogclw" path="res://scenes/chars/ninja_frog.tscn" id="2_j432y"]
+[ext_resource type="PackedScene" uid="uid://dmcn4rvwmtd7s" path="res://scenes/chars/player.tscn" id="3_6f4dk"]
 
 [node name="Level2" instance=ExtResource("1_hosnn")]
 
@@ -9,4 +10,9 @@
 layer_0/tile_data = PackedInt32Array(-131069, 458752, 0, -131068, 458752, 0, -131067, 458752, 0, -131066, 458752, 0, -131065, 458752, 0, 1048573, 458752, 0, 1048574, 458752, 0, 1048575, 458752, 0, 983040, 458752, 0, 983041, 458752, 0, 983042, 458752, 0, 983043, 458752, 0, 983044, 458752, 0, 983045, 458752, 0, 983046, 458752, 0, 983047, 458752, 0, 983048, 458752, 0, 983049, 458752, 0, 983050, 458752, 0, 983051, 458752, 0, 983052, 458752, 0, 983053, 458752, 0, 983054, 458752, 0, 983055, 458752, 0, 983056, 458752, 0, 983057, 458752, 0, 983058, 458752, 0, 983059, 458752, 0, 983060, 458752, 0, 983061, 458752, 0, 983062, 458752, 0, 983063, 458752, 0, 983064, 458752, 0, 983065, 458752, 0, 983066, 458752, 0)
 
 [node name="NinjaFrog" parent="." index="2" instance=ExtResource("2_j432y")]
-position = Vector2(44.9736, -32.0828)
+position = Vector2(-19.1239, 177.161)
+scale = Vector2(0.7, 0.7)
+
+[node name="Player" parent="." index="3" instance=ExtResource("3_6f4dk")]
+position = Vector2(-17.3189, 188.774)
+scale = Vector2(0.7, 0.7)

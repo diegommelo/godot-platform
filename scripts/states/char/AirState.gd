@@ -1,7 +1,6 @@
 class_name AirState
 extends State
 
-@export var double_jump_modifier : float = 0.8
 @export var double_jump_animation : String = "double_jump"
 @export var landing_animation : String = "landing"
 
@@ -33,12 +32,14 @@ func on_exit():
 		playback.travel(landing_animation)
 
 func double_jump():
-	character.velocity.y = character.movement_data.jump_velocity * double_jump_modifier
+	character.velocity.y = character.movement_data.jump_velocity * character.movement_data.double_jump_modifier
 	playback.travel(double_jump_animation)
 	has_double_jump = false
 
 func apply_air_resistance(delta):
+	print('air resistance')
 	character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.air_resistance * delta)
 	
 func handle_air_acceleration(delta):
+	print('air accel')
 	character.velocity.x = move_toward(character.velocity.x, character.movement_data.speed * character.direction.x, character.movement_data.air_acceleration * delta)
