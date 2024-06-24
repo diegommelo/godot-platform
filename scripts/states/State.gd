@@ -4,8 +4,7 @@ extends Node
 @export var can_move : bool = true
 
 var character : CharacterBody2D
-var playback : AnimationNodeStateMachinePlayback
-var animation : AnimationPlayer
+var animation_player : AnimationPlayer
 var from_state : String = ""
 var emitted_args : Dictionary = {}
 

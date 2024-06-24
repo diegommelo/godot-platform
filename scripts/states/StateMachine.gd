@@ -2,7 +2,6 @@ extends Node
 class_name CharacterStateMachine
 
 @export var character : CharacterBody2D
-@export var animation_tree : AnimationTree
 @export var current_state : State
 @export var animation_player : AnimationPlayer
 
@@ -13,7 +12,7 @@ func _ready():
 		if child is State:
 			states[child.name] = child
 			child.character = character
-			child.playback = animation_tree["parameters/playback"]
+			child.animation_player = animation_player
 			child.transitioned.connect(on_child_transitioned)
 		else:
 			push_warning("Child " + child.name + "is not a State ofr CharacterStateMachine")

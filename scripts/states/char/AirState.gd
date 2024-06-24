@@ -26,16 +26,16 @@ func state_input(event : InputEvent):
 			double_jump()
 
 func on_enter():
-	playback.travel("jump_start")
+	animation_player.play("jump_start")
 
 func on_exit():
 	has_double_jump = true
 	if from_state == 'GroundState':
-		playback.travel(landing_animation)
+		animation_player.play(landing_animation)
 
 func double_jump():
 	character.velocity.y = character.movement_data.jump_velocity * character.movement_data.double_jump_modifier
-	playback.travel(double_jump_animation)
+	animation_player.play(double_jump_animation)
 	has_double_jump = false
 
 func apply_air_resistance(delta):

@@ -2,6 +2,9 @@ class_name GroundState
 extends State
 
 @export var jump_animation : String = "jump"
+@export var run_animation : String = "run"
+@export var idle_animation : String = "idle"
+
 var has_jumped : bool = false
 
 func state_physics_process(delta) -> void:
@@ -14,7 +17,6 @@ func state_physics_process(delta) -> void:
 	if not character.is_on_floor() and has_jumped == false and character.velocity.y >= 80:
 		transitioned.emit("AirState", { 'from_state': name, 'has_jumped': has_jumped })
 		
-		
 func state_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
 		if character.is_on_floor():
@@ -24,18 +26,22 @@ func state_input(event: InputEvent) -> void:
 			#print('frog coyote')
 			jump()
 
+func on_enter():
+	animation_player.play(idle_animation)
 
 func jump() -> void:
 	character.velocity.y = character.movement_data.jump_velocity
 	has_jumped = true
-	playback.travel(jump_animation)
+	animation_player.play(jump_animation)
 	transitioned.emit("AirState", { 'from_state': name, 'has_jumped': has_jumped })
 	
 func walk(delta) -> void:
 	if character.direction != 0 :
 		#character.velocity.x = character.direction.x * character.movement_data.speed
+		animation_player.play(run_animation)
 		character.velocity.x = move_toward(character.velocity.x, character.movement_data.speed * character.direction, character.movement_data.acceleration * delta)
 	else:
+		animation_player.play(idle_animation)
 		character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.speed * delta)
 
 func apply_friction(delta) -> void:
