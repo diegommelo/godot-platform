@@ -7,11 +7,13 @@ extends State
 var has_double_jump = true
 
 func state_physics_process(delta):
-	apply_air_resistance(delta)
-	handle_air_acceleration(delta)
+	if character.direction == 0:
+		apply_air_resistance(delta)
+	if character.direction != 0:
+		handle_air_acceleration(delta)
 	
 	if character.is_on_floor():
-		transitioned.emit("LandingState", {})
+		transitioned.emit("GroundState", {})
 	
 	if not character.is_on_floor():
 		if Input.is_action_just_released("jump") and character.velocity.y < character.movement_data.jump_velocity / 2:
@@ -37,9 +39,9 @@ func double_jump():
 	has_double_jump = false
 
 func apply_air_resistance(delta):
-	print('air resistance')
+	#print('air resistance')
 	character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.air_resistance * delta)
 	
 func handle_air_acceleration(delta):
-	print('air accel')
-	character.velocity.x = move_toward(character.velocity.x, character.movement_data.speed * character.direction.x, character.movement_data.air_acceleration * delta)
+	#print('air accel')
+	character.velocity.x = move_toward(character.velocity.x, character.movement_data.speed * character.direction, character.movement_data.air_acceleration * delta)

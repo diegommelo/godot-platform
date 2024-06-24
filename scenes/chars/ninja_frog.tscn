@@ -321,7 +321,6 @@ movement_data = ExtResource("2_ow40y")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -1)
 texture = ExtResource("3_5v5t8")
-hframes = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

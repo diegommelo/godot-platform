@@ -34,7 +34,10 @@ func _physics_process(delta):
 	if just_left_wall:
 		wall_jump_timer.start()
 	update_animations(input_axis)
-
+	print('player ',velocity.x)
+	if is_on_floor():
+		print('player no chao')
+		
 func handle_acceleration(input_axis, delta):
 	if not is_on_floor(): return
 	if input_axis != 0:
@@ -51,7 +54,7 @@ func handle_jump():
 	# Coyote jump
 	if is_on_floor() or coyote_jump_timer.time_left > 0.0:
 		if Input.is_action_just_pressed("jump"):
-			print('player normal')
+			#print('player normal')
 			velocity.y = movement_data.jump_velocity
 			coyote_jump_timer.stop()
 			
@@ -59,12 +62,12 @@ func handle_jump():
 		# Small jump
 		if Input.is_action_just_released("jump") and velocity.y < movement_data.jump_velocity / 2:
 			velocity.y = movement_data.jump_velocity / 2
-			print('player small')
+			#print('player small')
 		# Double jump	
 		if Input.is_action_just_pressed("jump") and air_jump and not just_wall_jumped:
 			velocity.y = movement_data.jump_velocity * movement_data.double_jump_modifier
 			air_jump = false
-			print('player double')
+			#print('player double')
 
 func handle_wall_jump():
 	if not is_on_wall_only() and wall_jump_timer.time_left <= 0.0: return

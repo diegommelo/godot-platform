@@ -8,7 +8,7 @@ func state_physics_process(delta) -> void:
 	if character.is_on_floor():
 		has_jumped = false
 		walk(delta)
-		if character.direction.x == 0:
+		if character.direction == 0:
 			apply_friction(delta)
 
 	if not character.is_on_floor() and has_jumped == false and character.velocity.y >= 80:
@@ -32,16 +32,17 @@ func jump() -> void:
 	transitioned.emit("AirState", { 'from_state': name, 'has_jumped': has_jumped })
 	
 func walk(delta) -> void:
-	if character.direction.x != 0 :
+	if character.direction != 0 :
 		#character.velocity.x = character.direction.x * character.movement_data.speed
-		character.velocity.x = move_toward(character.velocity.x, character.movement_data.speed * character.direction.x, character.movement_data.acceleration * delta)
+		character.velocity.x = move_toward(character.velocity.x, character.movement_data.speed * character.direction, character.movement_data.acceleration * delta)
 	else:
 		character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.speed * delta)
 
 func apply_friction(delta) -> void:
+	#print('friction')
 	character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.friction * delta)
 
-func handle_acceleration(delta) -> void:
-	character.velocity.x = move_toward(character.velocity.x, character.movement_data.speed * character.direction.x, character.movement_data.acceleration * delta)
+#func handle_acceleration(delta) -> void:
+	#character.velocity.x = move_toward(character.velocity.x, character.movement_data.speed * character.direction, character.movement_data.acceleration * delta)
 	
 	
