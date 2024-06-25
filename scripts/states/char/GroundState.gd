@@ -45,10 +45,4 @@ func walk(delta) -> void:
 		character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.speed * delta)
 
 func apply_friction(delta) -> void:
-	#print('friction')
 	character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.friction * delta)
-
-#func handle_acceleration(delta) -> void:
-	#character.velocity.x = move_toward(character.velocity.x, character.movement_data.speed * character.direction, character.movement_data.acceleration * delta)
-	
-	
