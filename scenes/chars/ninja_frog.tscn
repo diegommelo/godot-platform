@@ -343,7 +343,6 @@ animation_player = NodePath("../AnimationPlayer")
 
 [node name="GroundState" type="Node" parent="ChararacterStateMachine"]
 script = ExtResource("8_ju7y4")
-jump_animation = "jump_start"
 
 [node name="AirState" type="Node" parent="ChararacterStateMachine"]
 script = ExtResource("9_u7k1c")

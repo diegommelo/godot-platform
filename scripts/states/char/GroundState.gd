@@ -1,21 +1,15 @@
 class_name GroundState
 extends State
 
-@export var jump_animation : String = "jump"
-@export var run_animation : String = "run"
-@export var idle_animation : String = "idle"
-
 var has_jumped : bool = false
 
 func on_enter():
-	animation_player.play(idle_animation)
+	animation_player.play(character.animations.idle)
 
 func state_physics_process(delta) -> void:
 	if character.is_on_floor():
 		has_jumped = false
-		walk(delta)
-		#if character.direction == 0:
-			#apply_friction(delta)
+		character.walk(delta)
 
 	if not character.is_on_floor() and has_jumped == false and character.velocity.y >= 80:
 		transitioned.emit("AirState", { 'from_state': name, 'has_jumped': has_jumped })
@@ -23,27 +17,6 @@ func state_physics_process(delta) -> void:
 func state_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
 		if character.is_on_floor():
-			#print('frog normal')
-			jump()
+			character.jump()
 		elif not character.is_on_floor() and character.velocity.y <= 40:
-			#print('frog small')
-			jump()
-
-func jump() -> void:
-	character.velocity.y = character.movement_data.jump_velocity
-	has_jumped = true
-	animation_player.play(jump_animation)
-	transitioned.emit("AirState", { 'from_state': name, 'has_jumped': has_jumped })
-	
-func walk(delta) -> void:
-	if character.direction != 0 :
-		#character.velocity.x = character.direction * character.movement_data.speed
-		character.velocity.x = move_toward(character.velocity.x, character.movement_data.speed * character.direction, character.movement_data.acceleration * delta)
-		animation_player.play(run_animation)
-	else:
-		animation_player.play(idle_animation)
-		#character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.speed * delta)
-		character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.friction * delta)
-#
-#func apply_friction(delta) -> void:
-	#character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.friction * delta)
+			character.jump()

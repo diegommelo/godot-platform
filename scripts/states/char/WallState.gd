@@ -1,15 +1,13 @@
 class_name WallState
 extends State
 
-const WALL_SLIDING: int = 1000;
-
 func on_enter() -> void:
 	wall_normal = character.get_wall_normal()
 	character.velocity.x = 0
 
 func state_physics_process(delta) -> void:
 	if from_state == "AirState":
-		animation_player.play("wall_jump")
+		animation_player.play(character.animations.wall_jump)
 		character.sprite_2d.flip_h = (wall_normal.x > 0)
 
 		if (wall_normal.x > 0 and Input.is_action_pressed("move_left")) or (wall_normal.x < 0 and Input.is_action_pressed("move_right")):
@@ -21,5 +19,9 @@ func state_physics_process(delta) -> void:
 	if character.is_on_floor():
 		transitioned.emit("GroundState", {})
 
+func state_input(event: InputEvent) -> void:
+	if event.is_action_pressed("jump"):
+		character.jump()
+
 func apply_wall_slide(delta) -> void:
-	character.velocity.y = WALL_SLIDING * delta;
+	character.velocity.y = character.movement_data.wall_sliding * delta;

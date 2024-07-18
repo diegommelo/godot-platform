@@ -20,12 +20,11 @@ func state_physics_process(delta):
 		handle_air_acceleration(delta)
 			
 	if Input.is_action_just_released("jump") and character.velocity.y < character.movement_data.jump_velocity / 2:
-		#print('frog small')
 		character.velocity.y = character.movement_data.jump_velocity / 2
 		
 	if character.is_on_wall_only():
 		var jump_direction = Input.get_axis("move_left", "move_right")
-		var wall_normal = character.get_wall_normal()
+		wall_normal = character.get_wall_normal()
 
 		if jump_direction != 0 and jump_direction != wall_normal.x:
 			transitioned.emit("WallState", { "from_state": name })
@@ -44,9 +43,7 @@ func double_jump():
 	has_double_jump = false
 
 func apply_air_resistance(delta):
-	#print('air resistance')
 	character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.air_resistance * delta)
 	
 func handle_air_acceleration(delta):
-	#print('air accel')
 	character.velocity.x = move_toward(character.velocity.x, character.movement_data.speed * character.direction, character.movement_data.air_acceleration * delta)
