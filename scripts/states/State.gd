@@ -3,6 +3,7 @@ extends Node
 
 @export var can_move : bool = true
 
+var wall_normal : Vector2
 var character : CharacterBody2D
 var animation_player : AnimationPlayer
 var from_state : String = ""

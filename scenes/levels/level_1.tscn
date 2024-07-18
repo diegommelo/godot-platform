@@ -60,6 +60,5 @@ position = Vector2(209.993, 188.715)
 position = Vector2(217.466, 188.566)
 
 [node name="NinjaFrog" parent="." index="11" instance=ExtResource("6_a5jgu")]
-position = Vector2(-19.6636, 104.856)
+position = Vector2(0.901962, 98.7097)
 scale = Vector2(0.7, 0.7)
-collision_layer = 2

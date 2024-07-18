@@ -34,7 +34,8 @@ func _physics_process(delta):
 	if just_left_wall:
 		wall_jump_timer.start()
 	update_animations(input_axis)
-		
+	
+	
 func handle_acceleration(input_axis, delta):
 	if not is_on_floor(): return
 	if input_axis != 0:
@@ -76,7 +77,7 @@ func handle_wall_jump():
 		velocity.y = movement_data.jump_velocity * movement_data.double_jump_modifier
 		animated_sprite.flip_h = false if wall_normal.x == 1 else true
 		just_wall_jumped = true
-		print('just_wall_jumped ', just_wall_jumped)
+		#print('just_wall_jumped ', just_wall_jumped)
 		
 
 func update_animations(input_axis):
@@ -99,7 +100,7 @@ func apply_gravity(delta):
 			
 func apply_friction(input_axis, delta):
 	if input_axis == 0 and is_on_floor():
-		print('fricion')
+		#print('fricion')
 		velocity.x = move_toward(velocity.x, 0, movement_data.friction * delta)
 
 func _on_hazard_detector_area_entered(area):

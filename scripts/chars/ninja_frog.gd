@@ -9,7 +9,6 @@ var direction : float
 
 func _physics_process(delta) -> void:
 	direction = Input.get_axis("move_left", "move_right")
-	
 	apply_gravity(delta)
 	move_and_slide()
 	update_facing_direction()

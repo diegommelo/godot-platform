@@ -15,7 +15,7 @@ func _ready():
 			child.animation_player = animation_player
 			child.transitioned.connect(on_child_transitioned)
 		else:
-			push_warning("Child " + child.name + "is not a State ofr CharacterStateMachine")
+			push_warning("Child " + child.name + "is not a State of CharacterStateMachine")
 	
 	current_state.on_enter()
 

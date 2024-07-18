@@ -7,12 +7,15 @@ extends State
 
 var has_jumped : bool = false
 
+func on_enter():
+	animation_player.play(idle_animation)
+
 func state_physics_process(delta) -> void:
 	if character.is_on_floor():
 		has_jumped = false
 		walk(delta)
-		if character.direction == 0:
-			apply_friction(delta)
+		#if character.direction == 0:
+			#apply_friction(delta)
 
 	if not character.is_on_floor() and has_jumped == false and character.velocity.y >= 80:
 		transitioned.emit("AirState", { 'from_state': name, 'has_jumped': has_jumped })
@@ -23,11 +26,8 @@ func state_input(event: InputEvent) -> void:
 			#print('frog normal')
 			jump()
 		elif not character.is_on_floor() and character.velocity.y <= 40:
-			#print('frog coyote')
+			#print('frog small')
 			jump()
-
-func on_enter():
-	animation_player.play(idle_animation)
 
 func jump() -> void:
 	character.velocity.y = character.movement_data.jump_velocity
@@ -37,12 +37,13 @@ func jump() -> void:
 	
 func walk(delta) -> void:
 	if character.direction != 0 :
-		#character.velocity.x = character.direction.x * character.movement_data.speed
-		animation_player.play(run_animation)
+		#character.velocity.x = character.direction * character.movement_data.speed
 		character.velocity.x = move_toward(character.velocity.x, character.movement_data.speed * character.direction, character.movement_data.acceleration * delta)
+		animation_player.play(run_animation)
 	else:
 		animation_player.play(idle_animation)
-		character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.speed * delta)
-
-func apply_friction(delta) -> void:
-	character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.friction * delta)
+		#character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.speed * delta)
+		character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.friction * delta)
+#
+#func apply_friction(delta) -> void:
+	#character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.friction * delta)
