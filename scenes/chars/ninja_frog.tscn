@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://cyl3trd3ogclw"]
 
-[ext_resource type="Script" path="res://scripts/chars/ninja_frog.gd" id="1_cb64f"]
+[ext_resource type="Script" path="res://scripts/chars/Character.gd" id="1_7eg6j"]
 [ext_resource type="Texture2D" uid="uid://dfign8syqn1th" path="res://sprites/chars/Ninja Frog/Idle (32x32).png" id="1_xsnu0"]
 [ext_resource type="Resource" uid="uid://rw8r5ebsgvx3" path="res://resources/DefaultMovementData.tres" id="2_ow40y"]
 [ext_resource type="Resource" uid="uid://dc4hun4j3c6xf" path="res://resources/AnimationNames.tres" id="3_4ymp8"]
@@ -318,7 +318,7 @@ height = 23.3143
 [node name="NinjaFrog" type="CharacterBody2D"]
 position = Vector2(0, 8)
 safe_margin = 0.1
-script = ExtResource("1_cb64f")
+script = ExtResource("1_7eg6j")
 movement_data = ExtResource("2_ow40y")
 animations = ExtResource("3_4ymp8")
 
