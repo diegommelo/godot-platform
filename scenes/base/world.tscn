@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6qiaitc0cdat"]
+
+[ext_resource type="Script" path="res://scripts/base/world.gd" id="1_qncd8"]
+[ext_resource type="PackedScene" uid="uid://cx2hgkvryoqrt" path="res://scenes/ui/level_completed.tscn" id="2_0vnhr"]
+[ext_resource type="PackedScene" uid="uid://brecphy80ng8c" path="res://scenes/base/level_tile_map.tscn" id="3_u7v4d"]
+
+[node name="World" type="Node2D"]
+position = Vector2(39.216, 32.0551)
+script = ExtResource("1_qncd8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelCompleted" parent="CanvasLayer" instance=ExtResource("2_0vnhr")]
+visible = false
+offset_left = 2.0
+offset_right = 2.0
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelTileMap" parent="." instance=ExtResource("3_u7v4d")]
+scale = Vector2(0.8, 0.8)
