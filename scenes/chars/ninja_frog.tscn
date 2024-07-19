@@ -317,6 +317,7 @@ height = 23.3143
 
 [node name="NinjaFrog" type="CharacterBody2D"]
 position = Vector2(0, 8)
+safe_margin = 0.1
 script = ExtResource("1_cb64f")
 movement_data = ExtResource("2_ow40y")
 animations = ExtResource("3_4ymp8")

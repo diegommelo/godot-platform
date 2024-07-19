@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var has_jumped: bool =  false
+var previous_wall_normal: float = 0
 var direction : float
 
 func _physics_process(delta) -> void:
@@ -17,26 +18,25 @@ func _physics_process(delta) -> void:
 	update_facing_direction()
 	
 func update_facing_direction() -> void:
-	if direction > 0:
-		sprite_2d.flip_h = false 
-	elif direction < 0:
-		sprite_2d.flip_h = true
+	if not is_on_wall():
+		if direction > 0:
+			sprite_2d.flip_h = false 
+		elif direction < 0:
+			sprite_2d.flip_h = true
 	
 func apply_gravity(delta) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * movement_data.gravity_scale * delta
 
-func jump() -> void:
+func jump(wall_direction: int = 0) -> void:
 	velocity.y = movement_data.jump_velocity
+
 	if state_machine.current_state.name == "WallState":
-		if direction > 0:
-			velocity.x = -movement_data.wall_jump_pushback
-		if direction < 0:
-			velocity.x = movement_data.wall_jump_pushback
+		wall_jump(wall_direction)
 
 	has_jumped = true
 	animation_player.play(animations.jump)
-	state_machine.current_state.transitioned.emit("AirState", { 'from_state': name, 'has_jumped': has_jumped })
+	state_machine.current_state.transitioned.emit("AirState", { 'from_state': state_machine.current_state.name })
 
 func walk(delta) -> void:
 	if direction != 0 :
@@ -47,3 +47,10 @@ func walk(delta) -> void:
 		animation_player.play(animations.idle)
 		#character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.speed * delta)
 		velocity.x = move_toward(velocity.x, 0, movement_data.friction * delta)
+
+func wall_jump(wall_direction: int) -> void:
+	if wall_direction < 0:
+		velocity.x = -movement_data.wall_jump_pushback
+	if wall_direction > 0:
+		velocity.x = movement_data.wall_jump_pushback
+	previous_wall_normal = wall_direction
