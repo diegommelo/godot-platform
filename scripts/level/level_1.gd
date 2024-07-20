@@ -23,13 +23,15 @@ var fruits_scenes: Dictionary = {
 }
 
 func _ready():
-  var selected_fruits: Array = []
-  selected_fruits = level_machine.get_fruits()
-  load_fruits(selected_fruits)
+	var selected_fruits: Array = []
+	var response: Array = []
+	selected_fruits = level_machine.get_fruits()
+	response = level_machine.get_ordered_fruits(selected_fruits)
+	load_fruits(selected_fruits)
 
 func load_fruits(selected_fruits: Array) -> void:
-  for fruit in selected_fruits:
-    var obj = fruits_scenes.get(fruit).instantiate()
-    var idx = selected_fruits.find(fruit)
-    obj.set_position(POSITIONS[idx])
-    get_parent().add_child.call_deferred(obj)
+	for fruit in selected_fruits:
+		var obj = fruits_scenes.get(fruit).instantiate()
+		var idx = selected_fruits.find(fruit)
+		obj.set_position(POSITIONS[idx])
+		get_parent().add_child.call_deferred(obj)

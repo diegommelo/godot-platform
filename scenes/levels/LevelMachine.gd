@@ -1,9 +1,10 @@
 class_name LevelMachine
 extends Node
 
-var fruits_full: Array = []
+var ordered_fruits: Array = []
 var selected_fruits: Array = []
-var fruits: Array = [
+var shuffled_fruits: Array = []
+var fruits_data: Array = [
   "apple",
   "cherry",
   "banana",
@@ -15,19 +16,21 @@ var fruits: Array = [
 ]
 
 func get_fruit() -> String:
-  var random_fruit: String
-  if fruits.is_empty():
-    fruits = fruits_full.duplicate()
-    fruits.shuffle()
-  random_fruit = fruits.pop_front()
-  return random_fruit
-
+	if shuffled_fruits.is_empty():
+		shuffled_fruits = fruits_data.duplicate()
+		shuffled_fruits.shuffle()
+	var random_fruit = shuffled_fruits.pop_front()
+	return random_fruit
+	
 func get_fruits() -> Array:
-  randomize()
-  fruits_full = fruits.duplicate()
-  fruits.shuffle()
-  for i in 6:
-    var fruit = get_fruit()
-    selected_fruits.append(fruit)
-  return selected_fruits
+	shuffled_fruits = fruits_data.duplicate()
+	shuffled_fruits.shuffle()
+	for i in 6:
+		var fruit = get_fruit()
+		selected_fruits.append(fruit)
+	return selected_fruits
 
+func get_ordered_fruits(fruits_to_order: Array) -> Array:
+		ordered_fruits = fruits_to_order.duplicate()
+		ordered_fruits.shuffle()
+		return ordered_fruits

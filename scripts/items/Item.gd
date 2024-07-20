@@ -1,2 +1,5 @@
-extends Node2D
-@onready var sprite_2d = $Sprite2D
+class_name Item
+extends Node
+
+func _ready():
+	add_to_group("items")
