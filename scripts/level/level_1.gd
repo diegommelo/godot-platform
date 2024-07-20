@@ -1,11 +1,13 @@
 extends Node
 
+@onready var level_machine : LevelMachine = $LevelMachine
+
 const POSITIONS = [
-  Vector2(101,200),
+  Vector2(101,190),
   Vector2(180,140),
   Vector2(310,205),
   Vector2(390,230),
-  Vector2(420,50),
+  Vector2(415,50),
   Vector2(78,40),
 ]
 
@@ -20,32 +22,14 @@ var fruits_scenes: Dictionary = {
   "strawberry": preload("res://scenes/items/strawberry.tscn"),
 }
 
-var _fruits: Array = ["apple","cherry","banana", "kiwi", "melon", "orange", "pineapple", "strawberry"]
-var _fruits_full: Array = []
-var _selected_fruits: Array = []
-
 func _ready():
-  get_fruits()
-  load_fruits()
-  
-func get_fruit() -> String:
-  if _fruits.is_empty():
-    _fruits = _fruits_full.duplicate()
-    _fruits.shuffle()
-  var random_fruit = _fruits.pop_front()
-  return random_fruit 
+  var selected_fruits: Array = []
+  selected_fruits = level_machine.get_fruits()
+  load_fruits(selected_fruits)
 
-func get_fruits() -> void:
-  randomize()
-  _fruits_full = _fruits.duplicate()
-  _fruits.shuffle()
-  for i in 6:
-    var fruit = get_fruit()
-    _selected_fruits.append(fruit)
-
-func load_fruits() -> void:
-  for fruit in _selected_fruits:
+func load_fruits(selected_fruits: Array) -> void:
+  for fruit in selected_fruits:
     var obj = fruits_scenes.get(fruit).instantiate()
-    var idx = _selected_fruits.find(fruit)
+    var idx = selected_fruits.find(fruit)
     obj.set_position(POSITIONS[idx])
     get_parent().add_child.call_deferred(obj)

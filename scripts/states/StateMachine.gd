@@ -1,5 +1,5 @@
-extends Node
 class_name CharacterStateMachine
+extends Node
 
 @export var character : CharacterBody2D
 @export var current_state : State
