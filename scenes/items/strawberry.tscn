@@ -1,0 +1,144 @@
+[gd_scene load_steps=21 format=3 uid="uid://q0d2l71lyjw8"]
+
+[ext_resource type="Texture2D" uid="uid://cd83s0i28msmu" path="res://sprites/items/Strawberry.png" id="1_cj4gt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd8wl"]
+atlas = ExtResource("1_cj4gt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4c1m"]
+atlas = ExtResource("1_cj4gt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pxxd"]
+atlas = ExtResource("1_cj4gt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjn4o"]
+atlas = ExtResource("1_cj4gt")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6dkk"]
+atlas = ExtResource("1_cj4gt")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8jgj"]
+atlas = ExtResource("1_cj4gt")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ssa6"]
+atlas = ExtResource("1_cj4gt")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64aej"]
+atlas = ExtResource("1_cj4gt")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x02lr"]
+atlas = ExtResource("1_cj4gt")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nokxq"]
+atlas = ExtResource("1_cj4gt")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhljb"]
+atlas = ExtResource("1_cj4gt")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfprn"]
+atlas = ExtResource("1_cj4gt")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4cym"]
+atlas = ExtResource("1_cj4gt")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibhdo"]
+atlas = ExtResource("1_cj4gt")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf6x0"]
+atlas = ExtResource("1_cj4gt")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfbie"]
+atlas = ExtResource("1_cj4gt")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ma2id"]
+atlas = ExtResource("1_cj4gt")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p2dw0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd8wl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4c1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pxxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjn4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6dkk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8jgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ssa6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64aej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x02lr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nokxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhljb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfprn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4cym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibhdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf6x0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfbie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ma2id")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sr76q"]
+radius = 5.06217
+
+[node name="Strawberry" type="Area2D"]
+scale = Vector2(0.6, 0.6)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p2dw0")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.464581, 0.727056)
+shape = SubResource("CircleShape2D_sr76q")
