@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://q0d2l71lyjw8"]
+[gd_scene load_steps=22 format=3 uid="uid://q0d2l71lyjw8"]
 
 [ext_resource type="Texture2D" uid="uid://cd83s0i28msmu" path="res://sprites/items/Strawberry.png" id="1_cj4gt"]
+[ext_resource type="Script" path="res://scripts/items/item.gd" id="1_h3a33"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nd8wl"]
 atlas = ExtResource("1_cj4gt")
@@ -134,6 +135,7 @@ radius = 5.06217
 
 [node name="Strawberry" type="Area2D"]
 scale = Vector2(0.7, 0.7)
+script = ExtResource("1_h3a33")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p2dw0")
@@ -142,3 +144,5 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.464581, 0.727056)
 shape = SubResource("CircleShape2D_sr76q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

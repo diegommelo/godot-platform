@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://csl00mok2vy2h"]
+[gd_scene load_steps=22 format=3 uid="uid://csl00mok2vy2h"]
 
 [ext_resource type="Texture2D" uid="uid://j7rlaeehh8kd" path="res://sprites/items/Bananas.png" id="1_fyh3o"]
+[ext_resource type="Script" path="res://scripts/items/item.gd" id="1_h1w14"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a30dx"]
 atlas = ExtResource("1_fyh3o")
@@ -133,6 +134,7 @@ animations = [{
 size = Vector2(9.79988, 5.0113)
 
 [node name="Banana" type="Area2D"]
+script = ExtResource("1_h1w14")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.6, 0.6)
@@ -144,3 +146,5 @@ frame_progress = 0.465979
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.0842896, 0.155595)
 shape = SubResource("RectangleShape2D_0ptch")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

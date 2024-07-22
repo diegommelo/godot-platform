@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://bbssw6m5hs3oi"]
+[gd_scene load_steps=22 format=3 uid="uid://bbssw6m5hs3oi"]
 
+[ext_resource type="Script" path="res://scripts/items/item.gd" id="1_b5gs4"]
 [ext_resource type="Texture2D" uid="uid://ckwo6yvdm8y3f" path="res://sprites/items/Orange.png" id="1_mkomv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6babi"]
@@ -133,6 +134,7 @@ animations = [{
 radius = 3.70247
 
 [node name="Orange" type="Area2D"]
+script = ExtResource("1_b5gs4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.6, 0.6)
@@ -141,3 +143,5 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_frpc4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

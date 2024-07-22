@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://q156vxggxvuy"]
+[gd_scene load_steps=22 format=3 uid="uid://q156vxggxvuy"]
 
 [ext_resource type="Texture2D" uid="uid://cqii37ys82mpb" path="res://sprites/items/Melon.png" id="1_2mqul"]
+[ext_resource type="Script" path="res://scripts/items/item.gd" id="1_ap2nu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ne55j"]
 atlas = ExtResource("1_2mqul")
@@ -133,6 +134,7 @@ animations = [{
 size = Vector2(9.45806, 5.78128)
 
 [node name="Melon" type="Area2D"]
+script = ExtResource("1_ap2nu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.6, 0.6)
@@ -142,3 +144,5 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.0163121, -0.146419)
 shape = SubResource("RectangleShape2D_iyrlk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

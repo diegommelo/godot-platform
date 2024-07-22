@@ -23,9 +23,9 @@ LevelTransition="*res://scenes/ui/level_transition.tscn"
 [display]
 
 window/size/viewport_width=446
-window/size/viewport_height=278
-window/size/window_width_override=1140
-window/size/window_height_override=711
+window/size/viewport_height=308
+window/size/window_width_override=1033
+window/size/window_height_override=710
 window/stretch/mode="canvas_items"
 
 [editor]
