@@ -1,28 +1,33 @@
 extends Node
 
+@onready var character = $NinjaFrog
+@onready var start_timer = $StartTimer
+
 const POSITIONS = [
   Vector2(62.207,143.368),
   Vector2(138.911,98.503),
   Vector2(267.341,160.097),
   Vector2(351.112,185.01),
-  Vector2(376.767,9.891),
-  Vector2(38.388,-4.491),
+  Vector2(382.767,9.891),
+  Vector2(47.388,-4.491),
 ]
 var fruits_scenes: Dictionary = {
-  "apple": preload("res://scenes/items/apple.tscn"),
-  "cherry": preload("res://scenes/items/cherry.tscn"),
-  "banana": preload("res://scenes/items/banana.tscn"),
-  "kiwi": preload("res://scenes/items/kiwi.tscn"),
-  "melon": preload("res://scenes/items/melon.tscn"),
-  "orange": preload("res://scenes/items/orange.tscn"),
-  "pineapple": preload("res://scenes/items/pineapple.tscn"),
-  "strawberry": preload("res://scenes/items/strawberry.tscn"),
+  "apple": "res://scenes/items/fruits/apple.tscn",
+  "cherry": "res://scenes/items/fruits/cherry.tscn",
+  "banana": "res://scenes/items/fruits/banana.tscn",
+  "kiwi": "res://scenes/items/fruits/kiwi.tscn",
+  "melon": "res://scenes/items/fruits/melon.tscn",
+  "orange": "res://scenes/items/fruits/orange.tscn",
+  "pineapple": "res://scenes/items/fruits/pineapple.tscn",
+  "strawberry": "res://scenes/items/fruits/strawberry.tscn",
 }
 var response: Array = []
 var collected: Array = []
 var answers: Array = []
-var answers_time: Array = []
+#var answers_time: Array = []
 var time: float = 0.0
+var time_stopped: bool = false
+var game_started: bool = false
 var ordered_fruits: Array = []
 var selected_fruits: Array = []
 var shuffled_fruits: Array = []
@@ -36,30 +41,36 @@ var fruits_data: Array = [
   "pineapple",
   "strawberry"
 ]
-
+	
 func _ready():
-	# var selected_fruits: Array = []
 	selected_fruits = get_fruits()
 	response = get_ordered_fruits(selected_fruits)
 	load_fruits(selected_fruits)
 	
 func _process(delta: float) -> void:
-	time += delta
+	if start_timer.time_left == 0 and time_stopped == false:
+		start_game()
+		
+	if game_started:
+		if not time_stopped:
+			time += delta
 	
 func _on_fruit_collected(fruit):
 	collected.append(fruit.to_lower())
-	answers_time.append(time)
+	#answers_time.append(time)
 	if collected.size() == 6:
 		check_if_all_colected()
+		stop_game()
 
 func load_fruits(fruits_to_load: Array) -> void:
 	for fruit in fruits_to_load:
-		var scene = fruits_scenes.get(fruit).instantiate()
+		var fruit_file = load(fruits_scenes.get(fruit))
+		var scene = fruit_file.instantiate()
 		scene.connect("fruit_collected", _on_fruit_collected)
 		var idx = fruits_to_load.find(fruit)
 		scene.set_position(POSITIONS[idx])
 		add_child.call_deferred(scene)
-
+	
 func check_if_all_colected() -> void:
 	for fruit in collected:
 		var idx = response.find(fruit)
@@ -68,7 +79,14 @@ func check_if_all_colected() -> void:
 		else:
 			answers.append(false)
 	print(", ".join(answers))
-	print(", ".join(answers_time))
+
+func start_game():
+	character.can_move = true
+	game_started = true
+	
+func stop_game():
+	character.can_move = false
+	time_stopped = true
 
 func get_fruit() -> String:
 	if shuffled_fruits.is_empty():
