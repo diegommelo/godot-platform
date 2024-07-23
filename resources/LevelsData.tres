@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="LevelsData" load_steps=2 format=3 uid="uid://bd0kdwxelnu2w"]
+
+[ext_resource type="Script" path="res://scripts/data/LevelsData.gd" id="1_hf42g"]
+
+[resource]
+script = ExtResource("1_hf42g")
+levels = {
+"level_1": {
+"id": 1,
+"locked": false
+},
+"level_10": {
+"id": 10,
+"locked": true
+},
+"level_11": {
+"id": 11,
+"locked": true
+},
+"level_12": {
+"id": 12,
+"locked": true
+},
+"level_2": {
+"id": 2,
+"locked": false
+},
+"level_3": {
+"id": 3,
+"locked": false
+},
+"level_4": {
+"id": 4,
+"locked": true
+},
+"level_5": {
+"id": 5,
+"locked": true
+},
+"level_6": {
+"id": 6,
+"locked": true
+},
+"level_7": {
+"id": 7,
+"locked": true
+},
+"level_8": {
+"id": 8,
+"locked": true
+},
+"level_9": {
+"id": 9,
+"locked": true
+}
+}

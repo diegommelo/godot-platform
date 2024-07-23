@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb2ffhx35jo7j"]
+
+[ext_resource type="Script" path="res://scenes/ui/LevelBox.gd" id="1_owlyp"]
+[ext_resource type="Texture2D" uid="uid://elafvdx788sb" path="res://sprites/ui/Lock-Closed.png" id="2_p2gj6"]
+
+[node name="LevelBox" type="PanelContainer"]
+custom_minimum_size = Vector2(110, 110)
+anchors_preset = -1
+anchor_left = 0.376682
+anchor_top = 0.321429
+anchor_right = 0.623318
+anchor_bottom = 0.678571
+offset_bottom = 1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_owlyp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_p2gj6")
+stretch_mode = 3
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
