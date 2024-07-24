@@ -9,5 +9,6 @@ func _ready():
 		add_child(level)
 
 func _on_level_selected(level):
-	var scene_level = "level_" + str(level) + ".tscn"
-	get_tree().change_scene_to_file("res://scenes/levels/" + scene_level)
+	var scene_level = "Level" + str(level)
+	MNSceneManager.set_current_level(scene_level)
+	MNSceneManager.switch_scene("World")

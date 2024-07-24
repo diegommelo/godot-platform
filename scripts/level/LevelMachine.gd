@@ -3,14 +3,22 @@ extends Node
 @onready var character = $NinjaFrog
 @onready var start_timer = $StartTimer
 
-const POSITIONS = [
-  Vector2(62.207,143.368),
-  Vector2(138.911,98.503),
-  Vector2(267.341,160.097),
-  Vector2(351.112,185.01),
-  Vector2(382.767,9.891),
-  Vector2(47.388,-4.491),
+@export var POSITIONS = [
+	Vector2(0,0),
+	Vector2(0,0),
+	Vector2(0,0),
+	Vector2(0,0),
+	Vector2(0,0),
+	Vector2(0,0),
 ]
+#const POSITIONS = [
+  #Vector2(62.207,143.368),
+  #Vector2(138.911,98.503),
+  #Vector2(267.341,160.097),
+  #Vector2(351.112,185.01),
+  #Vector2(382.767,9.891),
+  #Vector2(47.388,-4.491),
+#]
 var fruits_scenes: Dictionary = {
   "apple": "res://scenes/items/fruits/apple.tscn",
   "cherry": "res://scenes/items/fruits/cherry.tscn",
@@ -21,16 +29,6 @@ var fruits_scenes: Dictionary = {
   "pineapple": "res://scenes/items/fruits/pineapple.tscn",
   "strawberry": "res://scenes/items/fruits/strawberry.tscn",
 }
-var response: Array = []
-var collected: Array = []
-var answers: Array = []
-#var answers_time: Array = []
-var time: float = 0.0
-var time_stopped: bool = false
-var game_started: bool = false
-var ordered_fruits: Array = []
-var selected_fruits: Array = []
-var shuffled_fruits: Array = []
 var fruits_data: Array = [
   "apple",
   "cherry",
@@ -41,7 +39,17 @@ var fruits_data: Array = [
   "pineapple",
   "strawberry"
 ]
-	
+var response: Array = []
+var collected: Array = []
+var answers: Array = []
+#var answers_time: Array = []
+var time: float = 0.0
+var time_stopped: bool = false
+var game_started: bool = false
+var ordered_fruits: Array = []
+var selected_fruits: Array = []
+var shuffled_fruits: Array = []
+
 func _ready():
 	selected_fruits = get_fruits()
 	response = get_ordered_fruits(selected_fruits)

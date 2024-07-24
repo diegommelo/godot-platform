@@ -12,9 +12,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -199.0
-offset_top = -363.0
-offset_right = 199.0
+offset_left = -227.0
+offset_top = -343.0
+offset_right = 227.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -31,6 +31,7 @@ theme_override_constants/separation = 50
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+text = "Level Select"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2

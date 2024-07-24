@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://cwkiht2rce3jn"]
 
-[ext_resource type="Script" path="res://scripts/level/level_1.gd" id="2_47lq6"]
+[ext_resource type="Script" path="res://scripts/level/LevelMachine.gd" id="2_47lq6"]
 [ext_resource type="PackedScene" uid="uid://brecphy80ng8c" path="res://scenes/base/level_tile_map.tscn" id="2_r0ijc"]
-[ext_resource type="PackedScene" uid="uid://c03ycxa25mtsg" path="res://scenes/items/spike.tscn" id="4_s427q"]
+[ext_resource type="PackedScene" uid="uid://c03ycxa25mtsg" path="res://scenes/items/hazards/spike.tscn" id="4_s427q"]
 [ext_resource type="Script" path="res://scenes/levels/Label.gd" id="6_846ad"]
 [ext_resource type="PackedScene" uid="uid://cyl3trd3ogclw" path="res://scenes/chars/ninja_frog.tscn" id="6_a5jgu"]
 [ext_resource type="Script" path="res://scenes/levels/Timer.gd" id="7_fa3ok"]
@@ -20,6 +20,7 @@ font_size = 14
 [node name="Level1" type="Node2D"]
 position = Vector2(39.905, 73.9755)
 script = ExtResource("2_47lq6")
+POSITIONS = [Vector2(62.207, 143.368), Vector2(138.911, 98.503), Vector2(267.341, 160.097), Vector2(351.112, 185.01), Vector2(382.7, 9.891), Vector2(47.388, -4.491)]
 
 [node name="LevelTileMap" parent="." instance=ExtResource("2_r0ijc")]
 position = Vector2(153.016, 143.946)

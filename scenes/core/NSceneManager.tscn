@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgn6vks1cfsai"]
+
+[ext_resource type="Script" path="res://scenes/core/NSceneManager.gd" id="1_puap3"]
+
+[node name="NSceneManager" type="Node"]
+script = ExtResource("1_puap3")
+Scenes = {
+"LevelList": {
+"Level1": &"res://scenes/levels/level_1.tscn"
+},
+"LevelSelect": &"res://scenes/ui/LevelMenu.tscn",
+"Main": &"res://scenes/core/Main.tscn",
+"World": &"res://scenes/core/World.tscn"
+}
