@@ -53,6 +53,7 @@ var shuffled_fruits: Array = []
 func _ready():
 	selected_fruits = get_fruits()
 	response = get_ordered_fruits(selected_fruits)
+	GameState.set_current_response(response)
 	load_fruits(selected_fruits)
 	
 func _process(delta: float) -> void:

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo7d0dk02hgh3"]
+[gd_scene load_steps=3 format=3 uid="uid://bo7d0dk02hgh3"]
 
 [ext_resource type="Script" path="res://scenes/core/World.gd" id="1_xo1pg"]
+[ext_resource type="PackedScene" uid="uid://3nwxsvyspoyw" path="res://scenes/ui/SlotMenu.tscn" id="2_wi8rw"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_xo1pg")
@@ -15,3 +16,9 @@ offset_bottom = 31.0
 offset_right = 447.0
 offset_bottom = 32.0
 color = Color(0.129412, 0.121569, 0.188235, 1)
+
+[node name="SlotMenu" parent="." instance=ExtResource("2_wi8rw")]
+offset_left = 136.746
+offset_top = 98.6004
+offset_right = 306.746
+offset_bottom = 212.6
