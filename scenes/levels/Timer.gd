@@ -8,4 +8,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	text = str(get_parent().time).pad_decimals(1)
+	text = str(GameState.game_time).pad_decimals(1)

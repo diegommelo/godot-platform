@@ -1,5 +1,9 @@
 extends Node
 
+var game_time: float = 0.0
+var game_started: bool = false
+var game_time_stopped: bool = false
+
 #var current_level: String
 #var next_level: String
 #

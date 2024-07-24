@@ -43,9 +43,9 @@ var response: Array = []
 var collected: Array = []
 var answers: Array = []
 #var answers_time: Array = []
-var time: float = 0.0
-var time_stopped: bool = false
-var game_started: bool = false
+#var time: float = 0.0
+#var time_stopped: bool = false
+#var game_started: bool = false
 var ordered_fruits: Array = []
 var selected_fruits: Array = []
 var shuffled_fruits: Array = []
@@ -56,12 +56,12 @@ func _ready():
 	load_fruits(selected_fruits)
 	
 func _process(delta: float) -> void:
-	if start_timer.time_left == 0 and time_stopped == false:
+	if start_timer.time_left == 0 and GameState.game_time_stopped == false:
 		start_game()
 		
-	if game_started:
-		if not time_stopped:
-			time += delta
+	if GameState.game_started:
+		if not GameState.game_time_stopped:
+			GameState.game_time += delta
 	
 func _on_fruit_collected(fruit):
 	collected.append(fruit.to_lower())
@@ -90,11 +90,11 @@ func check_if_all_colected() -> void:
 
 func start_game():
 	character.can_move = true
-	game_started = true
+	GameState.game_started = true
 	
 func stop_game():
 	character.can_move = false
-	time_stopped = true
+	GameState.game_time_stopped = true
 
 func get_fruit() -> String:
 	if shuffled_fruits.is_empty():
