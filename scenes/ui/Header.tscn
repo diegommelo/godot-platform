@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf6m78q7lyjiv"]
+
+[ext_resource type="Script" path="res://scenes/ui/Timer.gd" id="1_b3vmy"]
+
+[node name="Header" type="VBoxContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -222.0
+offset_right = 223.0
+offset_bottom = 27.0
+grow_horizontal = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Timer" type="Label" parent="."]
+layout_mode = 2
+horizontal_alignment = 1
+script = ExtResource("1_b3vmy")

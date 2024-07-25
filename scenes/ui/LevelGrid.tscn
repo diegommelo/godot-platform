@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://hjfp4bpi7lyd"]
+
+[ext_resource type="Script" path="res://scenes/ui/LevelGrid.gd" id="1_h4kc7"]
+
+[node name="LevelGrid" type="GridContainer"]
+offset_right = 353.0
+offset_bottom = 232.0
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+script = ExtResource("1_h4kc7")
