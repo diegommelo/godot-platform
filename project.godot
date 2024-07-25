@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 MNSceneManager="*res://scenes/core/NSceneManager.tscn"
 GameState="*res://scripts/core/GameState.gd"
+EventBus="*res://scripts/core/EventBus.gd"
 
 [display]
 

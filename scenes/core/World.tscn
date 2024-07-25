@@ -1,23 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo7d0dk02hgh3"]
+[gd_scene load_steps=4 format=3 uid="uid://bo7d0dk02hgh3"]
 
 [ext_resource type="Script" path="res://scenes/core/World.gd" id="1_xo1pg"]
+[ext_resource type="PackedScene" uid="uid://bf6m78q7lyjiv" path="res://scenes/ui/Header.tscn" id="2_fal4w"]
 [ext_resource type="PackedScene" uid="uid://3nwxsvyspoyw" path="res://scenes/ui/SlotMenu.tscn" id="2_wi8rw"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_xo1pg")
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 448.0
-offset_bottom = 31.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 447.0
 offset_bottom = 32.0
 color = Color(0.129412, 0.121569, 0.188235, 1)
 
+[node name="Header" parent="." instance=ExtResource("2_fal4w")]
+offset_left = 1.0
+offset_right = 446.0
+offset_bottom = 31.0
+size_flags_horizontal = 4
+
 [node name="SlotMenu" parent="." instance=ExtResource("2_wi8rw")]
+z_index = 1
 offset_left = 136.746
 offset_top = 98.6004
 offset_right = 306.746

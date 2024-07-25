@@ -2,7 +2,7 @@ extends Node
 
 var game_time: float = 0.0
 var game_started: bool = false
-var game_time_stopped: bool = false
+var game_time_stopped: bool = true
 var current_response: Array = []
 
 #var current_level: String
@@ -24,3 +24,11 @@ func clear_current_response() -> void:
 	
 func get_current_response() -> Array:
 	return current_response
+
+func start_game() -> void:
+	game_started = true
+	game_time_stopped = false
+
+func stop_game() -> void:
+	game_started = false
+	game_time_stopped = true

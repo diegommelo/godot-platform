@@ -61,3 +61,11 @@ func wall_jump(wall_direction: int) -> void:
 	if wall_direction > 0:
 		velocity.x = movement_data.wall_jump_pushback
 	previous_wall_normal = wall_direction
+
+func stop():
+	can_move = false
+	animation_player.pause()
+
+func unstop():
+	can_move = true
+	animation_player.play()
