@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var movement_data : PlayerMovementData
 @export var animations : AnimationNames
 @onready var sprite_2d : Sprite2D = $Sprite2D
-@onready var state_machine : CharacterStateMachine = $ChararacterStateMachine
+@onready var state_machine : CharacterStateMachine = $CharacterStateMachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")

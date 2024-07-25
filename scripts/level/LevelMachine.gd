@@ -1,10 +1,8 @@
 extends Node
 
 var character_scene = preload("res://scenes/chars/ninja_frog.tscn")
-#@onready var character = $NinjaFrog
 @onready var start_timer = $StartTimer
 @onready var character
-
 @export var POSITIONS = [
 	Vector2(0,0),
 	Vector2(0,0),
@@ -13,9 +11,7 @@ var character_scene = preload("res://scenes/chars/ninja_frog.tscn")
 	Vector2(0,0),
 	Vector2(0,0),
 ]
-
 @export var PLAYER_INITIAL_POSITION = Vector2(0,0)
-
 var fruits_scenes: Dictionary = {
   "apple": "res://scenes/items/fruits/apple.tscn",
   "cherry": "res://scenes/items/fruits/cherry.tscn",
@@ -49,16 +45,7 @@ func _init():
 	
 func _ready():
 	EventBus.connect("start_game", _on_start_game)
-	#load_fruits()
-	#selected_fruits = get_fruits()
-	#response = get_ordered_fruits(selected_fruits)
-	#GameState.set_current_response(response)
-	#EventBus.fruits_picked.emit(response)
-	#if GameState.game_started:
-		#character = character_scene.instantiate()
-		#load_fruits(selected_fruits)
-		#add_child(character)
-	
+
 func _process(delta: float) -> void:
 	if GameState.game_started:
 		if not GameState.game_time_stopped:

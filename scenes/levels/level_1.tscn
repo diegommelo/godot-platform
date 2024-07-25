@@ -49,6 +49,7 @@ position = Vector2(225.074, 243.786)
 position = Vector2(232.547, 243.637)
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -22.1784
 offset_top = -68.827
 offset_right = 21.8216
@@ -58,6 +59,7 @@ autowrap_mode = 2
 script = ExtResource("6_846ad")
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 offset_left = 324.296
 offset_top = -68.0
 offset_right = 390.296

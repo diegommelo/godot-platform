@@ -337,25 +337,25 @@ libraries = {
 position = Vector2(1.82431, 2.89749)
 shape = SubResource("CapsuleShape2D_sipqr")
 
-[node name="ChararacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "current_state", "animation_player")]
+[node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "current_state", "animation_player")]
 script = ExtResource("7_28r21")
 character = NodePath("..")
 current_state = NodePath("GroundState")
 animation_player = NodePath("../AnimationPlayer")
 
-[node name="GroundState" type="Node" parent="ChararacterStateMachine"]
+[node name="GroundState" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("8_ju7y4")
 
-[node name="AirState" type="Node" parent="ChararacterStateMachine"]
+[node name="AirState" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("9_u7k1c")
 
-[node name="LandingState" type="Node" parent="ChararacterStateMachine" node_paths=PackedStringArray("ground_state")]
+[node name="LandingState" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ground_state")]
 script = ExtResource("10_0l0hg")
 landing_animation_name = "jump_end"
 ground_state = NodePath("../GroundState")
 can_move = false
 
-[node name="WallState" type="Node" parent="ChararacterStateMachine"]
+[node name="WallState" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("11_1773l")
 
 [node name="StateDebug" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
@@ -365,4 +365,4 @@ offset_right = 113.0
 offset_bottom = -14.25
 text = "State: "
 script = ExtResource("9_ovsat")
-state_machine = NodePath("../ChararacterStateMachine")
+state_machine = NodePath("../CharacterStateMachine")
