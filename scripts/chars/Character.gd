@@ -11,6 +11,11 @@ var has_jumped: bool =  false
 var previous_wall_normal: float = 0
 var direction : float
 var can_move: bool = false
+var hearts: int = 3
+
+func _init() -> void:
+	GameState.set_player_hearts(hearts)
+	#EventBus.connect("character_take_damage", _on_take_damage)
 
 func _physics_process(delta) -> void:
 	direction = Input.get_axis("move_left", "move_right")
@@ -69,3 +74,26 @@ func stop():
 func unstop():
 	can_move = true
 	animation_player.play()
+
+func take_damage() -> void:
+	if hearts > 0:
+		hearts -= 1
+		GameState.set_player_hearts(hearts)
+	else:
+		die()
+
+func die() -> void:
+	print("morreu")
+	set_position(GameState.player_initial_position)
+	
+func reset_position() -> void:
+	set_position(GameState.player_initial_position)
+
+#func _on_take_damage() -> void:
+	#print('took damage')
+	#take_damage()
+
+func _on_hazard_detector_area_entered(area):
+	take_damage()
+	reset_position()
+	EventBus.character_take_damage.emit()

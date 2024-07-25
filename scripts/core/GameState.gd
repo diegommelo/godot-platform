@@ -3,7 +3,9 @@ extends Node
 var game_time: float = 0.0
 var game_started: bool = false
 var game_time_stopped: bool = true
-var current_response: Array = []
+var current_response: Array
+var player_hearts: int
+var player_initial_position: Vector2
 
 #var current_level: String
 #var next_level: String
@@ -32,3 +34,12 @@ func start_game() -> void:
 func stop_game() -> void:
 	game_started = false
 	game_time_stopped = true
+
+func set_player_hearts(value: int) -> void:
+	player_hearts = value
+
+func set_player_initial_position(player_position: Vector2) -> void:
+	player_initial_position = player_position
+
+func clear_state() -> void:
+	pass

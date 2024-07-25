@@ -43,6 +43,3 @@ func on_child_transitioned(new_state_name: StringName, args: Dictionary) -> void
 				current_state.from_state = args['from_state']
 	else:
 		push_warning("Called transition on a state that does not exist")
-	
-func can_move() -> bool:
-	return current_state.can_move

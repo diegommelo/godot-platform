@@ -1,4 +1,4 @@
-class_name Item
+class_name item
 extends Node
 
 signal fruit_collected(fruit)

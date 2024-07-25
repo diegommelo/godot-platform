@@ -13,9 +13,11 @@ offset_bottom = 32.0
 color = Color(0.129412, 0.121569, 0.188235, 1)
 
 [node name="Header" parent="." instance=ExtResource("2_fal4w")]
-offset_left = 1.0
-offset_right = 446.0
+anchors_preset = 0
+anchor_right = 0.0
+offset_right = 445.0
 offset_bottom = 31.0
+grow_horizontal = 1
 size_flags_horizontal = 4
 
 [node name="SlotMenu" parent="." instance=ExtResource("2_wi8rw")]

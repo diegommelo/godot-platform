@@ -44,6 +44,7 @@ func _init():
 	load_fruits()
 	
 func _ready():
+	GameState.set_player_initial_position(PLAYER_INITIAL_POSITION)
 	EventBus.connect("start_game", _on_start_game)
 
 func _process(delta: float) -> void:

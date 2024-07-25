@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cyl3trd3ogclw"]
+[gd_scene load_steps=26 format=3 uid="uid://cyl3trd3ogclw"]
 
 [ext_resource type="Script" path="res://scripts/chars/Character.gd" id="1_7eg6j"]
 [ext_resource type="Texture2D" uid="uid://dfign8syqn1th" path="res://sprites/chars/Ninja Frog/Idle (32x32).png" id="1_xsnu0"]
@@ -315,9 +315,13 @@ _data = {
 radius = 8.70037
 height = 23.3143
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4epmg"]
+size = Vector2(16.0729, 20.5789)
+
 [node name="NinjaFrog" type="CharacterBody2D"]
 position = Vector2(0, 8)
 scale = Vector2(0.8, 0.8)
+collision_mask = 5
 safe_margin = 0.1
 script = ExtResource("1_7eg6j")
 movement_data = ExtResource("2_ow40y")
@@ -353,7 +357,6 @@ script = ExtResource("9_u7k1c")
 script = ExtResource("10_0l0hg")
 landing_animation_name = "jump_end"
 ground_state = NodePath("../GroundState")
-can_move = false
 
 [node name="WallState" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("11_1773l")
@@ -366,3 +369,13 @@ offset_bottom = -14.25
 text = "State: "
 script = ExtResource("9_ovsat")
 state_machine = NodePath("../CharacterStateMachine")
+
+[node name="HazardDetector" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardDetector"]
+position = Vector2(1.92452, 2.84894)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_4epmg")
+
+[connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]
