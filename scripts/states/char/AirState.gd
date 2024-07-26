@@ -8,6 +8,7 @@ func on_enter():
 		
 func on_exit():
 	has_double_jump = true
+	#character.velocity.x = 0
 
 func state_physics_process(delta):
 	if character.direction == 0:
@@ -23,7 +24,7 @@ func state_physics_process(delta):
 		transitioned.emit("WallState", { "from_state": name })
 			
 	if character.is_on_floor():
-		transitioned.emit("GroundState", {})
+		transitioned.emit("LandingState", {})
 		
 func state_input(event : InputEvent):
 	if event.is_action_pressed("jump") and has_double_jump and character.has_jumped:
@@ -31,6 +32,7 @@ func state_input(event : InputEvent):
 
 func double_jump():
 	character.velocity.y = character.movement_data.jump_velocity * character.movement_data.double_jump_modifier
+	character.velocity.x = character.velocity.x + 20
 	animation_player.play(character.animations.double_jump)
 	has_double_jump = false
 	#character.previous_wall_normal = 0

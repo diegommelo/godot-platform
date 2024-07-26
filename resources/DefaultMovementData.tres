@@ -4,11 +4,13 @@
 
 [resource]
 script = ExtResource("1_iuqru")
-speed = 100.0
+speed = 110.0
 jump_velocity = -250.0
-acceleration = 800.0
+acceleration = 950.0
 friction = 1300.0
 gravity_scale = 1.0
-air_resistance = 150.0
-air_acceleration = 600.0
-double_jump_modifier = 0.8
+air_resistance = 350.0
+air_acceleration = 350.0
+double_jump_modifier = 0.9
+wall_jump_pushback = 80.0
+wall_sliding = 1000

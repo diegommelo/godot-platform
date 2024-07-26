@@ -46,6 +46,13 @@ func jump(wall_direction: int = 0) -> void:
 	animation_player.play(animations.jump)
 	state_machine.current_state.transitioned.emit("AirState", { 'from_state': state_machine.current_state.name })
 
+func wall_jump(wall_direction: int) -> void:
+	if wall_direction < 0:
+		velocity.x = -movement_data.wall_jump_pushback
+	if wall_direction > 0:
+		velocity.x = movement_data.wall_jump_pushback
+	previous_wall_normal = wall_direction
+
 func walk(delta) -> void:
 	if not can_move:
 		velocity.x = 0
@@ -59,13 +66,6 @@ func walk(delta) -> void:
 		animation_player.play(animations.idle)
 		#character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.speed * delta)
 		velocity.x = move_toward(velocity.x, 0, movement_data.friction * delta)
-
-func wall_jump(wall_direction: int) -> void:
-	if wall_direction < 0:
-		velocity.x = -movement_data.wall_jump_pushback
-	if wall_direction > 0:
-		velocity.x = movement_data.wall_jump_pushback
-	previous_wall_normal = wall_direction
 
 func stop():
 	can_move = false

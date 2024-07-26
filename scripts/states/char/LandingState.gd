@@ -7,3 +7,6 @@ extends State
 func state_physics_process(_delta):
 	if character.is_on_floor(): 
 		transitioned.emit("GroundState", {})
+
+func on_enter():
+	character.velocity.x = character.velocity.x - 20
