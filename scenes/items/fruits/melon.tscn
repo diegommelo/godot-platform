@@ -134,6 +134,7 @@ animations = [{
 size = Vector2(9.45806, 5.78128)
 
 [node name="Melon" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_ap2nu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

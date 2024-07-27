@@ -10,7 +10,7 @@ func on_enter() -> void:
 
 func state_physics_process(delta) -> void:
 	if from_state == "AirState":
-		animation_player.play(character.animations.wall_jump)
+		character.animation_player.play(character.animations.wall_jump)
 		#if (wall_normal.x > 0 and Input.is_action_pressed("move_left")) or (wall_normal.x < 0 and Input.is_action_pressed("move_right")):
 			#apply_wall_slide(delta)
 					

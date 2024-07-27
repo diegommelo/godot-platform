@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bf6m78q7lyjiv"]
+[gd_scene load_steps=5 format=3 uid="uid://bf6m78q7lyjiv"]
 
 [ext_resource type="Script" path="res://scenes/ui/Timer.gd" id="1_b3vmy"]
 [ext_resource type="PackedScene" uid="uid://cb4xch860rh17" path="res://scenes/ui/Heart.tscn" id="1_o3327"]
 [ext_resource type="Script" path="res://scenes/ui/HeartContainer.gd" id="1_wa5t2"]
+[ext_resource type="PackedScene" uid="uid://w3svbhv2x00e" path="res://scenes/ui/FruitsPicked.tscn" id="4_a55cd"]
 
 [node name="Header" type="MarginContainer"]
 anchors_preset = 10
@@ -19,7 +20,7 @@ theme_override_constants/margin_right = 20
 [node name="GridContainer" type="GridContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
-columns = 3
+columns = 4
 
 [node name="HeartContainer" type="GridContainer" parent="MarginContainer/GridContainer"]
 layout_mode = 2
@@ -40,7 +41,9 @@ layout_mode = 2
 
 [node name="Timer" type="Label" parent="MarginContainer/GridContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
 text = "afssf"
 horizontal_alignment = 1
 script = ExtResource("1_b3vmy")
+
+[node name="FruitsPicked" parent="MarginContainer/GridContainer" instance=ExtResource("4_a55cd")]
+layout_mode = 2

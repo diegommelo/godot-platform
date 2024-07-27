@@ -311,16 +311,16 @@ _data = {
 "wall_jump": SubResource("Animation_pcg5w")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sipqr"]
-radius = 8.70037
-height = 23.3143
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgwso"]
+size = Vector2(13.7664, 20.9856)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4epmg"]
-size = Vector2(16.0729, 20.5789)
+size = Vector2(12.9419, 21.0107)
 
 [node name="NinjaFrog" type="CharacterBody2D"]
 position = Vector2(0, 8)
 scale = Vector2(0.8, 0.8)
+collision_layer = 2
 collision_mask = 5
 safe_margin = 0.1
 script = ExtResource("1_7eg6j")
@@ -338,14 +338,14 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.82431, 2.89749)
-shape = SubResource("CapsuleShape2D_sipqr")
+position = Vector2(0.488673, 3.33813)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_wgwso")
 
-[node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "current_state", "animation_player")]
+[node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "current_state")]
 script = ExtResource("7_28r21")
 character = NodePath("..")
 current_state = NodePath("GroundState")
-animation_player = NodePath("../AnimationPlayer")
 
 [node name="GroundState" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("8_ju7y4")
@@ -372,10 +372,11 @@ script = ExtResource("9_ovsat")
 state_machine = NodePath("../CharacterStateMachine")
 
 [node name="HazardDetector" type="Area2D" parent="."]
+collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HazardDetector"]
-position = Vector2(1.92452, 2.84894)
+position = Vector2(0.483795, 3.16913)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_4epmg")
 

@@ -1,28 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo7d0dk02hgh3"]
+[gd_scene load_steps=5 format=3 uid="uid://bo7d0dk02hgh3"]
 
 [ext_resource type="Script" path="res://scenes/core/World.gd" id="1_xo1pg"]
 [ext_resource type="PackedScene" uid="uid://bf6m78q7lyjiv" path="res://scenes/ui/Header.tscn" id="2_fal4w"]
 [ext_resource type="PackedScene" uid="uid://3nwxsvyspoyw" path="res://scenes/ui/SlotMenu.tscn" id="2_wi8rw"]
+[ext_resource type="PackedScene" uid="uid://bodmscwlgrxe" path="res://scenes/ui/PauseScreen.tscn" id="4_6t80i"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_xo1pg")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 447.0
-offset_bottom = 32.0
+[node name="Menus" type="MarginContainer" parent="."]
+offset_right = 445.0
+offset_bottom = 308.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Menus"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
 color = Color(0.129412, 0.121569, 0.188235, 1)
 
-[node name="Header" parent="." instance=ExtResource("2_fal4w")]
-anchors_preset = 0
-anchor_right = 0.0
-offset_right = 445.0
-offset_bottom = 31.0
-grow_horizontal = 1
-size_flags_horizontal = 4
+[node name="Header" parent="Menus" instance=ExtResource("2_fal4w")]
+layout_mode = 2
+theme_override_constants/margin_top = 5
 
-[node name="SlotMenu" parent="." instance=ExtResource("2_wi8rw")]
+[node name="SlotMenu" parent="Menus" instance=ExtResource("2_wi8rw")]
 z_index = 1
-offset_left = 136.746
-offset_top = 98.6004
-offset_right = 306.746
-offset_bottom = 212.6
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+
+[node name="PauseScreen" parent="Menus" instance=ExtResource("4_6t80i")]
+visible = false
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4

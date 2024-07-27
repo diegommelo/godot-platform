@@ -134,6 +134,7 @@ animations = [{
 size = Vector2(5.82705, 8.21084)
 
 [node name="Pineapple" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_88awu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

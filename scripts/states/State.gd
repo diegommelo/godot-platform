@@ -2,7 +2,7 @@ class_name State
 extends Node
 
 var character : CharacterBody2D
-var animation_player : AnimationPlayer
+#var animation_player : AnimationPlayer
 var from_state : String = ""
 var emitted_args : Dictionary = {}
 

@@ -134,6 +134,7 @@ animations = [{
 radius = 3.70247
 
 [node name="Orange" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_b5gs4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

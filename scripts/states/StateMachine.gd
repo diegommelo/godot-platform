@@ -3,7 +3,7 @@ extends Node
 
 @export var character : CharacterBody2D
 @export var current_state : State
-@export var animation_player : AnimationPlayer
+#@export var animation_player : AnimationPlayer
 
 var states: Dictionary = {}
 
@@ -12,11 +12,11 @@ func _ready():
 		if child is State:
 			states[child.name] = child
 			child.character = character
-			child.animation_player = animation_player
+			#child.animation_player = animation_player
 			child.transitioned.connect(on_child_transitioned)
 		else:
 			push_warning("Child " + child.name + "is not a State of CharacterStateMachine")
-	
+
 	current_state.on_enter()
 
 func _process(delta: float) -> void:

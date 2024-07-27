@@ -57,7 +57,7 @@ wait_time = 2.0
 one_shot = true
 autostart = true
 
-[node name="HazardArea" parent="." instance=ExtResource("5_1rlvo")]
+[node name="HazardArea" parent="." groups=["hazards"] instance=ExtResource("5_1rlvo")]
 
 [node name="Spike" parent="HazardArea" instance=ExtResource("4_s427q")]
 position = Vector2(40.0292, 195.647)
@@ -72,7 +72,7 @@ position = Vector2(71.377, 195.357)
 position = Vector2(63.3215, 193.224)
 shape = SubResource("RectangleShape2D_im41k")
 
-[node name="HazardArea2" parent="." instance=ExtResource("5_1rlvo")]
+[node name="HazardArea2" parent="." groups=["hazards"] instance=ExtResource("5_1rlvo")]
 position = Vector2(126.428, -25.3457)
 
 [node name="Spike" parent="HazardArea2" instance=ExtResource("4_s427q")]

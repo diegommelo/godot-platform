@@ -10,3 +10,8 @@ func _ready():
 func _on_body_entered(_body):
 	fruit_collected.emit(name)
 	queue_free()
+
+func pause_animation() -> void:
+	print('aqui')
+	var sprite = get_child(0)
+	sprite.pause()

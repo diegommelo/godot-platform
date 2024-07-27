@@ -46,10 +46,11 @@ func _init():
 func _ready():
 	GameState.set_player_initial_position(PLAYER_INITIAL_POSITION)
 	EventBus.connect("start_game", _on_start_game)
+	EventBus.connect("pause_game", _on_pause_game)
 
 func _process(delta: float) -> void:
 	if GameState.game_started:
-		if not GameState.game_time_stopped:
+		if not GameState.game_time_stopped or not GameState.game_paused:
 			GameState.game_time += delta
 
 func get_random_fruit() -> String:
@@ -75,13 +76,14 @@ func get_ordered_fruits(fruits_to_order: Array) -> Array:
 func load_fruits_in_scene(fruits_to_load: Array) -> void:
 	for fruit in fruits_to_load:
 		var fruit_file = load(fruits_scenes.get(fruit))
-		var scene = fruit_file.instantiate()
-		scene.connect("fruit_collected", _on_fruit_collected)
+		var fruit_scene = fruit_file.instantiate()
+		fruit_scene.connect("fruit_collected", _on_fruit_collected)
 		var idx = fruits_to_load.find(fruit)
-		scene.set_position(POSITIONS[idx])
-		add_child.call_deferred(scene)
+		fruit_scene.set_position(POSITIONS[idx])
+		add_to_group("collectables")
+		add_child.call_deferred(fruit_scene)
 
-func check_if_all_colected() -> void:
+func check_collected() -> void:
 	for fruit in collected:
 		var idx = response.find(fruit)
 		if collected[idx] == response[idx]:
@@ -94,7 +96,7 @@ func load_fruits() -> void:
 	selected_fruits = get_fruits()
 	response = get_ordered_fruits(selected_fruits)
 	#GameState.set_current_response(response)
-	EventBus.fruits_picked.emit(response)
+	EventBus.fruits_selected.emit(response)
 
 func load_character() -> void:
 	character = character_scene.instantiate()
@@ -109,8 +111,13 @@ func _on_start_game():
 
 func _on_fruit_collected(fruit):
 	collected.append(fruit.to_lower())
+	EventBus.fruit_picked.emit(collected)
 	#answers_time.append(time)
 	if collected.size() == 6:
-		check_if_all_colected()
+		check_collected()
+		get_tree().call_group("hazards", "disable_hazards")
 		GameState.stop_game()
 		character.stop()
+		
+func _on_pause_game():
+	get_tree().call_group("collectables", "pause_animation")

@@ -3,9 +3,6 @@ extends State
 
 var has_double_jump : bool = true
 
-func on_enter():
-	animation_player.play(character.animations.jump)
-		
 func on_exit():
 	has_double_jump = true
 	#character.velocity.x = 0
@@ -32,8 +29,7 @@ func state_input(event : InputEvent):
 
 func double_jump():
 	character.velocity.y = character.movement_data.jump_velocity * character.movement_data.double_jump_modifier
-	character.velocity.x = character.velocity.x + 20
-	animation_player.play(character.animations.double_jump)
+	character.animation_player.play(character.animations.double_jump)
 	has_double_jump = false
 	#character.previous_wall_normal = 0
 

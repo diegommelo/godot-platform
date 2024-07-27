@@ -6,6 +6,7 @@ var game_time_stopped: bool = true
 var current_response: Array
 var player_hearts: int
 var player_initial_position: Vector2
+var game_paused: bool = false
 
 #var current_level: String
 #var next_level: String
@@ -43,3 +44,11 @@ func set_player_initial_position(player_position: Vector2) -> void:
 
 func clear_state() -> void:
 	pass
+
+func pause_game() -> void:
+	game_time_stopped = true
+	game_paused = true
+
+func unpause_game() -> void:
+	game_time_stopped = false
+	game_paused = false

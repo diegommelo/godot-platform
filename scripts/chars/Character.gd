@@ -3,8 +3,8 @@ extends CharacterBody2D
 @export var movement_data : PlayerMovementData
 @export var animations : AnimationNames
 @onready var sprite_2d : Sprite2D = $Sprite2D
-@onready var state_machine : CharacterStateMachine = $CharacterStateMachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var state_machine : CharacterStateMachine = $CharacterStateMachine
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var has_jumped: bool =  false
@@ -15,6 +15,7 @@ var hearts: int = 3
 
 func _init() -> void:
 	GameState.set_player_hearts(hearts)
+	EventBus.connect("pause_game", _on_game_paused)
 	#EventBus.connect("character_take_damage", _on_take_damage)
 
 func _physics_process(delta) -> void:
@@ -69,11 +70,11 @@ func walk(delta) -> void:
 
 func stop():
 	can_move = false
-	animation_player.pause()
+	#animation_player.pause()
 
 func unstop():
 	can_move = true
-	animation_player.play()
+	#animation_player.play()
 
 func take_damage() -> void:
 	if hearts > 0:
@@ -97,3 +98,6 @@ func _on_hazard_detector_area_entered(area):
 	take_damage()
 	reset_position()
 	EventBus.character_take_damage.emit()
+
+func _on_game_paused():
+	stop()
