@@ -312,10 +312,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgwso"]
-size = Vector2(13.7664, 20.9856)
+size = Vector2(13.5871, 22.1522)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4epmg"]
-size = Vector2(12.9419, 21.0107)
+size = Vector2(13.0031, 20.5577)
 
 [node name="NinjaFrog" type="CharacterBody2D"]
 position = Vector2(0, 8)
@@ -338,7 +338,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.488673, 3.33813)
+position = Vector2(1.35319, 3.87499)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_wgwso")
 
@@ -362,7 +362,6 @@ ground_state = NodePath("../GroundState")
 script = ExtResource("11_1773l")
 
 [node name="StateDebug" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
-visible = false
 offset_left = -21.0
 offset_top = -37.25
 offset_right = 113.0
@@ -375,8 +374,8 @@ state_machine = NodePath("../CharacterStateMachine")
 collision_layer = 2
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardDetector"]
-position = Vector2(0.483795, 3.16913)
+[node name="HazardShape" type="CollisionShape2D" parent="HazardDetector"]
+position = Vector2(1.31355, 3.703)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_4epmg")
 

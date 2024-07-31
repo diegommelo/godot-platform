@@ -3,11 +3,14 @@ extends State
 
 var has_double_jump : bool = true
 
+func on_enter():
+	character.animation_player.play(character.animations.jump)
+
 func on_exit():
 	has_double_jump = true
 	#character.velocity.x = 0
 
-func state_physics_process(delta):
+func state_physics_process(delta):	
 	if character.direction == 0:
 		apply_air_resistance(delta)
 		
@@ -34,6 +37,7 @@ func double_jump():
 	#character.previous_wall_normal = 0
 
 func apply_air_resistance(delta):
+	#print(character.velocity.x)
 	character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.air_resistance * delta)
 	
 func handle_air_acceleration(delta):

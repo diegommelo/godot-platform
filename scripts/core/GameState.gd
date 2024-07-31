@@ -46,9 +46,9 @@ func clear_state() -> void:
 	pass
 
 func pause_game() -> void:
-	game_time_stopped = true
+	#game_time_stopped = true
 	game_paused = true
 
 func unpause_game() -> void:
-	game_time_stopped = false
+	#game_time_stopped = false
 	game_paused = false

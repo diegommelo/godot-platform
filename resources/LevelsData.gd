@@ -7,7 +7,7 @@ extends Resource
 		"id": 1,
 	},
 	"Level2": {
-		"locked": true,
+		"locked": false,
 		"id": 2,
 	},
 	"Level3": {

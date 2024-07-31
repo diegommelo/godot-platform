@@ -1,6 +1,10 @@
 class_name GroundState
 extends State
 
+func on_enter():
+	pass
+	#character.velocity.x = 0
+
 func state_physics_process(delta) -> void:
 	if character.is_on_floor():
 		character.has_jumped = false

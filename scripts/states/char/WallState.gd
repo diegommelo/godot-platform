@@ -19,12 +19,13 @@ func state_physics_process(delta) -> void:
 
 	if !character.is_on_wall():
 		if from_state == "AirState":
-			transitioned.emit("AirState", {})
+			transitioned.emit("AirState", { 'from_state': "WallState" })
 			
 
 func state_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump") and character.previous_wall_normal != wall_normal.x:
-		character.jump(wall_normal.x)		
+		#character.jump(wall_normal.x)
+		character.wall_jump(wall_normal.x)
 	#if event.is_action_pressed("move_left") and wall_normal.x < 0:
 		#character.velocity.x = -20
 	#if event.is_action_pressed("move_right") and wall_normal.x > 0:

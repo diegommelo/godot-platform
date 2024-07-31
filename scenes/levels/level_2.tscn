@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://desqvi1kpcese"]
+
+[ext_resource type="PackedScene" uid="uid://cyl3trd3ogclw" path="res://scenes/chars/ninja_frog.tscn" id="1_h0r3b"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="NinjaFrog" parent="." instance=ExtResource("1_h0r3b")]
+position = Vector2(127.569, 224.843)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0.375748, 236.209, 446.41, 237.798, 446.939, 308.253, 0.375748, 308.253)

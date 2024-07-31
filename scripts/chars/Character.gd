@@ -10,15 +10,15 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var has_jumped: bool =  false
 var previous_wall_normal: float = 0
 var direction : float
-var can_move: bool = false
+var can_move: bool = true
 var hearts: int = 3
 
 func _init() -> void:
 	GameState.set_player_hearts(hearts)
-	EventBus.connect("pause_game", _on_game_paused)
 	#EventBus.connect("character_take_damage", _on_take_damage)
 
 func _physics_process(delta) -> void:
+	print(velocity)
 	direction = Input.get_axis("move_left", "move_right")
 	apply_gravity(delta)
 	move_and_slide()
@@ -41,13 +41,14 @@ func jump(wall_direction: int = 0) -> void:
 	if not can_move:
 		return
 	velocity.y = movement_data.jump_velocity
-	if state_machine.current_state.name == "WallState":
-		wall_jump(wall_direction)
+	#if state_machine.current_state.name == "WallState":
+		#wall_jump(wall_direction)
 	has_jumped = true
-	animation_player.play(animations.jump)
+	#animation_player.play(animations.jump)
 	state_machine.current_state.transitioned.emit("AirState", { 'from_state': state_machine.current_state.name })
 
 func wall_jump(wall_direction: int) -> void:
+	velocity.y = movement_data.jump_velocity
 	if wall_direction < 0:
 		velocity.x = -movement_data.wall_jump_pushback
 	if wall_direction > 0:
@@ -68,13 +69,11 @@ func walk(delta) -> void:
 		#character.velocity.x = move_toward(character.velocity.x, 0, character.movement_data.speed * delta)
 		velocity.x = move_toward(velocity.x, 0, movement_data.friction * delta)
 
-func stop():
+func stop() -> void:
 	can_move = false
-	#animation_player.pause()
 
-func unstop():
+func unstop() -> void:
 	can_move = true
-	#animation_player.play()
 
 func take_damage() -> void:
 	if hearts > 0:
@@ -98,6 +97,3 @@ func _on_hazard_detector_area_entered(area):
 	take_damage()
 	reset_position()
 	EventBus.character_take_damage.emit()
-
-func _on_game_paused():
-	stop()

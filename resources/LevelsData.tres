@@ -23,7 +23,7 @@ levels = {
 },
 "level_2": {
 "id": 2,
-"locked": true
+"locked": false
 },
 "level_3": {
 "id": 3,

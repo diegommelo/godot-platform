@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo7d0dk02hgh3"]
+[gd_scene load_steps=6 format=3 uid="uid://bo7d0dk02hgh3"]
 
 [ext_resource type="Script" path="res://scenes/core/World.gd" id="1_xo1pg"]
 [ext_resource type="PackedScene" uid="uid://bf6m78q7lyjiv" path="res://scenes/ui/Header.tscn" id="2_fal4w"]
+[ext_resource type="Script" path="res://scenes/core/Menus.gd" id="2_jx140"]
 [ext_resource type="PackedScene" uid="uid://3nwxsvyspoyw" path="res://scenes/ui/SlotMenu.tscn" id="2_wi8rw"]
 [ext_resource type="PackedScene" uid="uid://bodmscwlgrxe" path="res://scenes/ui/PauseScreen.tscn" id="4_6t80i"]
 
@@ -9,10 +10,12 @@
 script = ExtResource("1_xo1pg")
 
 [node name="Menus" type="MarginContainer" parent="."]
+process_mode = 3
 offset_right = 445.0
 offset_bottom = 308.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
+script = ExtResource("2_jx140")
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Menus"]

@@ -6,7 +6,8 @@
 script = ExtResource("1_puap3")
 Scenes = {
 "LevelList": {
-"Level1": &"res://scenes/levels/level_1.tscn"
+"Level1": &"res://scenes/levels/level_1.tscn",
+"Level2": &"res://scenes/levels/level_2.tscn"
 },
 "LevelSelect": &"res://scenes/ui/LevelMenu.tscn",
 "Main": &"res://scenes/core/Main.tscn",

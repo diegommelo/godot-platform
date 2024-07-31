@@ -103,6 +103,7 @@ func load_character() -> void:
 	character.set_position(PLAYER_INITIAL_POSITION)
 	add_child(character)
 
+#region Events
 func _on_start_game():
 	load_fruits_in_scene(selected_fruits)
 	load_character()
@@ -121,3 +122,7 @@ func _on_fruit_collected(fruit):
 		
 func _on_pause_game():
 	get_tree().call_group("collectables", "pause_animation")
+	
+func _on_restart_game():
+	pass
+#endregion
