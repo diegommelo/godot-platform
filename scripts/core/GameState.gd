@@ -7,6 +7,7 @@ var current_response: Array
 var player_hearts: int
 var player_initial_position: Vector2
 var game_paused: bool = false
+var current_collected: Array
 
 #var current_level: String
 #var next_level: String

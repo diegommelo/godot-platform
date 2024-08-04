@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfcc1jymlyiv7"]
+
+[ext_resource type="Texture2D" uid="uid://di4d3m0tu2olj" path="res://sprites/ui/Novo Projeto(3).png" id="1_j24s0"]
+[ext_resource type="PackedScene" uid="uid://dm0deguvojfhf" path="res://scenes/items/fruits/apple.tscn" id="2_y7pqb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_px24l"]
+atlas = ExtResource("1_j24s0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j5ypk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_px24l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ItemSelect" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 191.0
+offset_top = 144.0
+offset_right = -225.0
+offset_bottom = -134.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(15.077, 15.2407)
+sprite_frames = SubResource("SpriteFrames_j5ypk")
+autoplay = "default"
+frame_progress = 0.94729
+
+[node name="Apple" parent="." instance=ExtResource("2_y7pqb")]
+position = Vector2(15.4303, 15.9874)
+scale = Vector2(1.8, 1.8)

@@ -18,7 +18,7 @@ func _init() -> void:
 	#EventBus.connect("character_take_damage", _on_take_damage)
 
 func _physics_process(delta) -> void:
-	print(velocity)
+	#print(velocity)
 	direction = Input.get_axis("move_left", "move_right")
 	apply_gravity(delta)
 	move_and_slide()

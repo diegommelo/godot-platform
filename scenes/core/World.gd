@@ -4,3 +4,5 @@ func _ready():
 	var level = load(MNSceneManager.get_level_scene())
 	var scene = level.instantiate()
 	add_child(scene)
+
+#color rect 211f30
