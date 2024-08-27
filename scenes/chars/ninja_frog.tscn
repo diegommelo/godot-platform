@@ -338,7 +338,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.35319, 3.87499)
+position = Vector2(0.675342, 3.92713)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_wgwso")
 

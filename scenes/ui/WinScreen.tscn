@@ -1,16 +1,95 @@
-[gd_scene format=3 uid="uid://c7i3n0hbi6t4d"]
+[gd_scene load_steps=3 format=3 uid="uid://c7i3n0hbi6t4d"]
 
-[node name="Control" type="MarginContainer"]
+[ext_resource type="PackedScene" uid="uid://drjw75qs03suw" path="res://scenes/ui/FruitSlot.tscn" id="1_bwxwv"]
+[ext_resource type="PackedScene" uid="uid://bxshn1td71hq1" path="res://scenes/ui/Star.tscn" id="2_pr2mj"]
+
+[node name="WinScreen" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 138.0
-offset_top = 97.0
-offset_right = -138.0
-offset_bottom = -97.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_vertical = 4
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_top = 40
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 35
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Level Completed"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 50
+
+[node name="FruitsContainer" type="GridContainer" parent="VBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 20
+columns = 6
+
+[node name="FruitSlot" parent="VBoxContainer/VBoxContainer2/VBoxContainer/FruitsContainer" instance=ExtResource("1_bwxwv")]
+layout_mode = 2
+
+[node name="FruitSlot2" parent="VBoxContainer/VBoxContainer2/VBoxContainer/FruitsContainer" instance=ExtResource("1_bwxwv")]
+layout_mode = 2
+
+[node name="FruitSlot3" parent="VBoxContainer/VBoxContainer2/VBoxContainer/FruitsContainer" instance=ExtResource("1_bwxwv")]
+layout_mode = 2
+
+[node name="FruitSlot4" parent="VBoxContainer/VBoxContainer2/VBoxContainer/FruitsContainer" instance=ExtResource("1_bwxwv")]
+layout_mode = 2
+
+[node name="FruitSlot5" parent="VBoxContainer/VBoxContainer2/VBoxContainer/FruitsContainer" instance=ExtResource("1_bwxwv")]
+layout_mode = 2
+
+[node name="FruitSlot6" parent="VBoxContainer/VBoxContainer2/VBoxContainer/FruitsContainer" instance=ExtResource("1_bwxwv")]
+layout_mode = 2
+
+[node name="StarContainer" type="GridContainer" parent="VBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 30
+columns = 3
+
+[node name="Star1" parent="VBoxContainer/VBoxContainer2/VBoxContainer/StarContainer" instance=ExtResource("2_pr2mj")]
+modulate = Color(0.244776, 0.244776, 0.244776, 1)
+layout_mode = 2
+
+[node name="Star2" parent="VBoxContainer/VBoxContainer2/VBoxContainer/StarContainer" instance=ExtResource("2_pr2mj")]
+modulate = Color(0.244776, 0.244776, 0.244776, 1)
+layout_mode = 2
+
+[node name="Star3" parent="VBoxContainer/VBoxContainer2/VBoxContainer/StarContainer" instance=ExtResource("2_pr2mj")]
+modulate = Color(0.244776, 0.244776, 0.244776, 1)
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="VBoxContainer/ButtonContainer"]
+layout_mode = 2
+text = "Play Again"
+
+[node name="Button2" type="Button" parent="VBoxContainer/ButtonContainer"]
+layout_mode = 2
+text = "Next Level"
+
+[node name="Button3" type="Button" parent="VBoxContainer/ButtonContainer"]
+layout_mode = 2
+text = "Level Selection"

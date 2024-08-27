@@ -8,6 +8,7 @@ var player_hearts: int
 var player_initial_position: Vector2
 var game_paused: bool = false
 var current_collected: Array
+var current_answer: Array
 
 #var current_level: String
 #var next_level: String
@@ -43,6 +44,9 @@ func set_player_hearts(value: int) -> void:
 func set_player_initial_position(player_position: Vector2) -> void:
 	player_initial_position = player_position
 
+func set_current_answer(answers: Array) -> void:
+	current_answer = answers
+
 func clear_state() -> void:
 	pass
 
@@ -53,3 +57,12 @@ func pause_game() -> void:
 func unpause_game() -> void:
 	#game_time_stopped = false
 	game_paused = false
+
+#func check_answer() -> void:
+	#for fruit in current_collected:
+		#var idx = current_response.find(fruit)
+		#if current_collected[idx] == current_response[idx]:
+			#current_answer.append(true)
+		#else:
+			#current_answer.append(false)
+

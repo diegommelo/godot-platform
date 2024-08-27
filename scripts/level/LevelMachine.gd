@@ -12,6 +12,8 @@ var character_scene = preload("res://scenes/chars/ninja_frog.tscn")
 	Vector2(0,0),
 ]
 @export var PLAYER_INITIAL_POSITION = Vector2(0,0)
+
+#var FRUITS_ENUM = 
 var fruits_scenes: Dictionary = {
   "apple": "res://scenes/items/fruits/apple.tscn",
   "cherry": "res://scenes/items/fruits/cherry.tscn",
@@ -32,6 +34,10 @@ var fruits_data: Array = [
   "pineapple",
   "strawberry"
 ]
+
+#var fruit_fruits: Dictionary = {
+	#"apple"
+#}
 var response: Array = []
 var collected: Array = []
 var answers: Array = []
@@ -90,12 +96,15 @@ func check_collected() -> void:
 			answers.append(true)
 		else:
 			answers.append(false)
-	print(", ".join(answers))
-	
+	GameState.set_current_answer(answers)
+
+#func calculate_points() -> void:
+	#
+	#
 func load_fruits() -> void:
 	selected_fruits = get_fruits()
 	response = get_ordered_fruits(selected_fruits)
-	#GameState.set_current_response(response)
+	GameState.set_current_response(response)
 	EventBus.fruits_selected.emit(response)
 
 func load_character() -> void:
@@ -112,13 +121,14 @@ func _on_start_game():
 
 func _on_fruit_collected(fruit):
 	collected.append(fruit.to_lower())
-	EventBus.fruit_picked.emit(collected)
+	#GameState.current_collected = collected
+	#EventBus.fruit_picked.emit(collected)
 	#answers_time.append(time)
 	if collected.size() == 6:
-		check_collected()
-		get_tree().call_group("hazards", "disable_hazards")
+		#get_tree().call_group("hazards", "disable_hazards")
 		GameState.stop_game()
 		character.stop()
+		check_collected()
 		
 func _on_pause_game():
 	get_tree().call_group("collectables", "pause_animation")
